@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="menu">
+        <ion-buttons slot="start">
+            <ion-button routerLink="/assign-faculty">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title> Assignment / Notice </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+        <ion-fab-button color="primary" class="fab-btn" (click)="create()">
+          <ion-icon name="add" class="add-icon"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <ion-grid>
+        <ion-row class="HeadData">
+            <ion-col size="2"> S.No </ion-col>
+            <ion-col size="3"> Title </ion-col>
+            <ion-col size="4"> Created Date </ion-col>
+            <ion-col size="3"> Action </ion-col>
+        </ion-row>
+        <ion-row *ngIf="listData.length==0">
+            <ion-col size="12"> No data found </ion-col>
+        </ion-row>
+        <div class="valData" *ngIf="listData.length!=0">
+            <ion-row *ngFor="let d of listData;let n=index">
+                <ion-col size="2"> {{n+1}} </ion-col>
+                <ion-col size="3"> {{d.title}} </ion-col>
+                <ion-col size="4"> {{d.notice_date_time}} </ion-col>
+                <ion-col size="3">
+                    <ion-icon name="create" style="color: blue; padding-right: 10px" (click)="edit(d)"></ion-icon>
+                    <!-- <ion-icon name="trash" style="color: red" (click)="delete(d)"></ion-icon> -->
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,329 @@
+<ion-header>
+    <ion-toolbar color="menu">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title> Time Table </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="!isError && timetableData">
+        <ion-slides pager="false" #Slides [options]="slideOpts" >
+
+            <ion-slide>
+                <div class="">
+                    <ion-grid class="tabl">
+                        <ion-row>
+                            <ion-col size="3" (click)="prev(Slides)">
+                                <!-- <ion-icon name="arrow-dropleft"></ion-icon> -->
+                            </ion-col>
+                            <ion-col size="6">
+                                Monday
+                            </ion-col>
+                            <ion-col size="3" (click)="nnext(Slides)">
+                                <ion-icon name="arrow-dropright"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="a_list">
+                            <ion-col size="2">
+                                <p>Hour</p>
+                            </ion-col>
+                            <ion-col size="6">
+                                <p>Timings</p>
+                            </ion-col>
+                            <ion-col size="4">
+                                <p>Subject name</p>
+                            </ion-col>
+                        </ion-row>
+                        <div class="abst_list" *ngFor="let Monday of timetableData.classTimeTable.Monday,let i=index">
+                            <ion-row>
+                                <ion-col size="2">
+                                    <p>{{i+1}}</p>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <p>{{Monday.timings}}</p>
+                                </ion-col>
+                                <ion-col size="4">
+                                    <p>{{Monday.subject_name}}</p>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </ion-grid>
+                </div>
+            </ion-slide>
+
+            <ion-slide>
+                <div class="">
+                    <ion-grid class="tabl">
+                        <ion-row>
+                            <ion-col size="3" (click)="prev(Slides)">
+                                <ion-icon name="arrow-dropleft"></ion-icon>
+                            </ion-col>
+                            <ion-col size="6">
+                                Tuesday
+                            </ion-col>
+                            <ion-col size="3" (click)="nnext(Slides)">
+                                <ion-icon name="arrow-dropright"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="a_list">
+                            <ion-col size="2">
+                                <p>Hour</p>
+                            </ion-col>
+                            <ion-col size="6">
+                                <p>Timings</p>
+                            </ion-col>
+                            <ion-col size="4">
+                                <p>Subject name</p>
+                            </ion-col>
+                        </ion-row>
+                        <div class="abst_list" *ngFor="let Tuesday of timetableData.classTimeTable.Tuesday,let i=index">
+                            <ion-row>
+                                <ion-col size="2">
+                                    <p>{{i+1}}</p>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <p>{{Tuesday.timings}}</p>
+                                </ion-col>
+                                <ion-col size="4">
+                                    <p>{{Tuesday.subject_name}}</p>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </ion-grid>
+                </div>
+            </ion-slide>
+
+
+            <ion-slide>
+                <div class="">
+                    <ion-grid class="tabl">
+                        <ion-row>
+                            <ion-col size="3" (click)="prev(Slides)">
+                                <ion-icon name="arrow-dropleft"></ion-icon>
+                            </ion-col>
+                            <ion-col size="6">
+                                Wednesday
+                            </ion-col>
+                            <ion-col size="3" (click)="nnext(Slides)">
+                                <ion-icon name="arrow-dropright"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="a_list">
+                            <ion-col size="2">
+                                <p>Hour</p>
+                            </ion-col>
+                            <ion-col size="6">
+                                <p>Timings</p>
+                            </ion-col>
+                            <ion-col size="4">
+                                <p>Subject name</p>
+                            </ion-col>
+                        </ion-row>
+                        <div class="abst_list" *ngFor="let Wednesday of timetableData.classTimeTable.Wednesday,let i=index">
+                            <ion-row>
+                                <ion-col size="2">
+                                    <p>{{i+1}}</p>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <p>{{Wednesday.timings}}</p>
+                                </ion-col>
+                                <ion-col size="4">
+                                    <p>{{Wednesday.subject_name}}</p>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </ion-grid>
+                </div>
+            </ion-slide>
+
+            <ion-slide>
+                <div class="">
+                    <ion-grid class="tabl">
+                        <ion-row>
+                            <ion-col size="3" (click)="prev(Slides)">
+                                <ion-icon name="arrow-dropleft"></ion-icon>
+                            </ion-col>
+                            <ion-col size="6">
+                                Thursday
+                            </ion-col>
+                            <ion-col size="3" (click)="nnext(Slides)">
+                                <ion-icon name="arrow-dropright"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="a_list">
+                            <ion-col size="2">
+                                <p>Hour</p>
+                            </ion-col>
+                            <ion-col size="6">
+                                <p>Timings</p>
+                            </ion-col>
+                            <ion-col size="4">
+                                <p>Subject name</p>
+                            </ion-col>
+                        </ion-row>
+                        <div class="abst_list" *ngFor="let Thursday of timetableData.classTimeTable.Thursday,let i=index">
+                            <ion-row>
+                                <ion-col size="2">
+                                    <p>{{i+1}}</p>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <p>{{Thursday.timings}}</p>
+                                </ion-col>
+                                <ion-col size="4">
+                                    <p>{{Thursday.subject_name}}</p>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </ion-grid>
+                </div>
+            </ion-slide>
+
+            <ion-slide>
+                <div class="">
+                    <ion-grid class="tabl">
+                        <ion-row>
+                            <ion-col size="3" (click)="prev(Slides)">
+                                <ion-icon name="arrow-dropleft"></ion-icon>
+                            </ion-col>
+                            <ion-col size="6">
+                                Friday
+                            </ion-col>
+                            <ion-col size="3" (click)="nnext(Slides)">
+                                <ion-icon name="arrow-dropright"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="a_list">
+                            <ion-col size="2">
+                                <p>Hour</p>
+                            </ion-col>
+                            <ion-col size="6">
+                                <p>Timings</p>
+                            </ion-col>
+                            <ion-col size="4">
+                                <p>Subject name</p>
+                            </ion-col>
+                        </ion-row>
+                        <div class="abst_list" *ngFor="let Friday of timetableData.classTimeTable.Friday,let i=index">
+                            <ion-row>
+                                <ion-col size="2">
+                                    <p>{{i+1}}</p>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <p>{{Friday.timings}}</p>
+                                </ion-col>
+                                <ion-col size="4">
+                                    <p>{{Friday.subject_name}}</p>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </ion-grid>
+                </div>
+            </ion-slide>
+
+
+            <ion-slide>
+                <div class="">
+                    <ion-grid class="tabl">
+                        <ion-row>
+                            <ion-col size="3" (click)="prev(Slides)">
+                                <ion-icon name="arrow-dropleft"></ion-icon>
+                            </ion-col>
+                            <ion-col size="6">
+                                Saturday
+                            </ion-col>
+                            <ion-col size="3" (click)="nnext(Slides)">
+                                <ion-icon name="arrow-dropright"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="a_list">
+                            <ion-col size="2">
+                                <p>Hour</p>
+                            </ion-col>
+                            <ion-col size="6">
+                                <p>Timings</p>
+                            </ion-col>
+                            <ion-col size="4">
+                                <p>Subject name</p>
+                            </ion-col>
+                        </ion-row>
+                        <div class="abst_list" *ngFor="let Saturday of timetableData.classTimeTable.Saturday,let i=index">
+                            <ion-row>
+                                <ion-col size="2">
+                                    <p>{{i+1}}</p>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <p>{{Saturday.timings}}</p>
+                                </ion-col>
+                                <ion-col size="4">
+                                    <p>{{Saturday.subject_name}}</p>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </ion-grid>
+                </div>
+            </ion-slide>
+
+
+            <ion-slide>
+                <div class="">
+                    <ion-grid class="tabl">
+                        <ion-row>
+                            <ion-col size="3" (click)="prev(Slides)">
+                                <ion-icon name="arrow-dropleft"></ion-icon>
+                            </ion-col>
+                            <ion-col size="6">
+                                Sunday
+                            </ion-col>
+                            <ion-col size="3">
+                                <!-- <ion-icon name="arrow-dropright"></ion-icon> -->
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="a_list">
+                            <ion-col size="2">
+                                <p>Hour</p>
+                            </ion-col>
+                            <ion-col size="6">
+                                <p>Timings</p>
+                            </ion-col>
+                            <ion-col size="4">
+                                <p>Subject name</p>
+                            </ion-col>
+                        </ion-row>
+                        <div class="abst_list" *ngFor="let Sunday of timetableData.classTimeTable.Sunday,let i=index">
+                            <ion-row>
+                                <ion-col size="2">
+                                    <p>{{i+1}}</p>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <p>{{Sunday.timings}}</p>
+                                </ion-col>
+                                <ion-col size="4">
+                                    <p>{{Sunday.subject_name}}</p>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </ion-grid>
+                </div>
+            </ion-slide>
+            <!-- 
+            <ion-slide>
+                <h1>Slide 2</h1>
+            </ion-slide>
+            <ion-slide>
+                <h1>Slide 3</h1>
+            </ion-slide> -->
+        </ion-slides>
+
+    </div>
+    <ion-card *ngIf="isError" style="text-align: center;color: #000;margin: 15px;">
+
+        <!-- {{ circularData.data.length|json}} -->
+
+        <h3>{{err}}</h3>
+
+        <img src="../../../assets/images/noti.png" class="imf" />
+    </ion-card>
+
+</ion-content>

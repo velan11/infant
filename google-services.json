@@ -1,0 +1,155 @@
+{
+  "project_info": {
+    "project_number": "778071257094",
+    "firebase_url": "https://pacifyca-9733d.firebaseio.com",
+    "project_id": "pacifyca-9733d",
+    "storage_bucket": "pacifyca-9733d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778071257094:android:9790962f37f582d4",
+        "android_client_info": {
+          "package_name": "biz.atconline.pacifyca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778071257094-ila1c49n1131l0b0imskcesdengpkqio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI-rdgVpG2htbTEjzoGfZG-bYE7-3RN4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778071257094-ila1c49n1131l0b0imskcesdengpkqio.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "778071257094-p2p76p0b0d6407a8clkb1bgr4fepu1dp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "biz.atconline.pacifyca.st.agnes"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778071257094:android:90e3cf59d179fe55775387",
+        "android_client_info": {
+          "package_name": "biz.atconline.pacifyca.infant.jesus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778071257094-ila1c49n1131l0b0imskcesdengpkqio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI-rdgVpG2htbTEjzoGfZG-bYE7-3RN4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778071257094-ila1c49n1131l0b0imskcesdengpkqio.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "778071257094-p2p76p0b0d6407a8clkb1bgr4fepu1dp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "biz.atconline.pacifyca.st.agnes"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778071257094:android:827727f241bf89b3",
+        "android_client_info": {
+          "package_name": "biz.atconline.pacifyca.lourdes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778071257094-ila1c49n1131l0b0imskcesdengpkqio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI-rdgVpG2htbTEjzoGfZG-bYE7-3RN4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778071257094-ila1c49n1131l0b0imskcesdengpkqio.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "778071257094-p2p76p0b0d6407a8clkb1bgr4fepu1dp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "biz.atconline.pacifyca.st.agnes"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778071257094:android:0177f6d288df1c68775387",
+        "android_client_info": {
+          "package_name": "biz.atconline.pacifyca.st.agnes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778071257094-ila1c49n1131l0b0imskcesdengpkqio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI-rdgVpG2htbTEjzoGfZG-bYE7-3RN4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778071257094-ila1c49n1131l0b0imskcesdengpkqio.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "778071257094-p2p76p0b0d6407a8clkb1bgr4fepu1dp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "biz.atconline.pacifyca.st.agnes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

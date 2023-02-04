@@ -1,0 +1,100 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>OTP Verification</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div class="text-center" style="text-align: center;">
+    <img src="assets/images/asd.png" class="img-fluid" alt="" />
+  </div>
+  <!-- <ion-text class="ion-margin-vertical" color="dark">
+    <h1 no-margin><b>Verification...</b></h1>
+  </ion-text>
+  <ion-img src="../assets/images/otp.jpg"></ion-img> -->
+  <!-- <ion-text color="primary">
+    <p class="ion-margin-vertical ion-text-center"><b>Enter O T P</b></p>
+  </ion-text>
+  <div text-center>
+    <input [(ngModel)]="otp" type="tel" maxlength="5" />
+  </div> -->
+  <div class="brde">
+    <h3 style="margin-top: 0;">Verification Code</h3>
+    <div style="padding:  0 25px;">
+      <ion-item>
+        <ion-label position="floating">Enter OTP</ion-label>
+        <ion-input type="tel" [(ngModel)]="otp" maxlength="5"></ion-input>
+      </ion-item>
+    </div>
+    <!-- //id="partitioned" -->
+    <!-- <ion-text color="primary">
+    <p class="ion-margin-vertical ion-text-right"><small>Resend OTP</small></p>
+  </ion-text> -->
+    <p class="red ion-text-center" *ngIf="error">{{error}}</p>
+
+    <div class="ion-text-center ion-margin-top">
+      <ion-button
+        expand="default"
+        (click)="otp_verify()"
+        shape="round"
+        color="tertiary"
+        >Verify</ion-button
+      >
+    </div>
+
+    <p>Please enter your code from SMS</p>
+    <p>we've sent you</p>
+  </div>
+  <!-- <p style="text-align: center;">
+    Your OTP is {{otps}}
+  </p> -->
+  <div>
+    <span (click)="bakk()" class="back">
+      <ion-icon name="arrow-back"></ion-icon>
+    </span>
+  </div>
+  <!-- <form
+    method="get"
+    class="digit-group"
+    data-group-name="digits"
+    data-autosubmit="false"
+    autocomplete="off"
+  >
+    <input type="text" id="digit-1" name="digit-1" data-next="digit-2" />
+    <input
+      type="text"
+      id="digit-2"
+      name="digit-2"
+      data-next="digit-3"
+      data-previous="digit-1"
+    />
+    <input
+      type="text"
+      id="digit-3"
+      name="digit-3"
+      data-next="digit-4"
+      data-previous="digit-2"
+    />
+    <span class="splitter">&ndash;</span>
+    <input
+      type="text"
+      id="digit-4"
+      name="digit-4"
+      data-next="digit-5"
+      data-previous="digit-3"
+    />
+    <input
+      type="text"
+      id="digit-5"
+      name="digit-5"
+      data-next="digit-6"
+      data-previous="digit-4"
+    />
+    <input type="text" id="digit-6" name="digit-6" data-previous="digit-5" />
+  </form> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="../../assets/js/input.js"></script> -->
+</ion-content>

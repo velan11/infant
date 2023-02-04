@@ -1,0 +1,46 @@
+.grid-bordered{
+    ion-row{
+      border-style: solid;
+      white-space: normal;
+      text-align: center;
+      font-style: bold;
+      font-weight: bold;
+    //   align-items: center;
+
+      border-width: 1px 0px 1px 0px;
+      border-color: #5f5757;
+      line-height: 32px;
+    //   border-radius: 30px;
+    }
+    .row-text{
+      white-space: normal;
+      line-height: 15px;
+    }
+    ion-col{
+      border-style: solid;
+      border-radius: 2px;
+      border-width: 0px 1px 0px 1px;
+      border-color: #ccc6c6;
+    }
+}
+
+.thumnails{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    .list-thumbnail{
+        height: 10%;
+        white-space: nowrap;
+        .img-thumb{
+            display: inline-block;
+            
+            border: 0px solid rgb(211, 12, 12);
+            border-radius: 4px;
+            padding: 3px;
+            width: 160%; 
+            font-size: 12px;
+            height: 100%;
+            margin:0 2px 0 0; 
+            line-height: 30px;
+        }
+    }
+}

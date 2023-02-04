@@ -1,0 +1,140 @@
+<ion-header>
+    <ion-toolbar color="menu">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Profile</ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- (click)="profileimg()" -->
+    <ion-grid no-padding *ngIf="userData">
+        <ion-row>
+            <ion-col style="text-align: center;">
+                <!-- size="3"
+      offset="4"
+      style="padding-left: 10px;position: relative;" -->
+                <img src="../../assets/images/no-image.png" *ngIf="(['',null,undefined].indexOf(userData.photo) > -1)" class="imku" />
+
+                <img class="imku" *ngIf="(['',null,undefined].indexOf(userData.photo) === -1)" [src]="userData.photo" />
+
+                <!-- <span class="camico"> [src]="userData.student_name"
+          <ion-icon name="camera"></ion-icon>
+        </span> -->
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="das" *ngIf="userData">
+        <!-- <ion-item>
+      <ion-thumbnail>
+        <ion-label position="fixed">
+          <ion-icon name="contact" class="yel-col"></ion-icon> Name</ion-label
+        >
+      </ion-thumbnail>
+      <ion-input disabled [(ngModel)]="userData.student_name"></ion-input>
+    </ion-item> -->
+
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-icon name="person" class="yel-col"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>
+                <h3>Name</h3>
+                <div>{{userData.student_name}}</div>
+            </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-icon name="information-circle-outline" class="yel-col"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>
+                <h3>Admission No.</h3>
+                <div>{{userData.admission_number}}</div>
+            </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-icon name="calendar" class="yel-col"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>
+                <h3>Joining Date</h3>
+                <div>{{userData.joining_date| date:'dd-LL-yyyy'}}</div>
+            </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-icon name="time" class="yel-col"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>
+                <h3>Date of Birth</h3>
+                <div>{{userData.dob | date:'dd-LL-yyyy'}}</div>
+            </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-icon name="school" class="yel-col"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>
+                <h3>Institute</h3>
+                <div>{{userData.institution_name}}</div>
+            </ion-label>
+        </ion-item>
+
+        <!-- <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-icon name="paper" class="yel-col"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>
+                <h3>Programme</h3>
+                <div>{{userData.programme}}</div>
+            </ion-label>
+        </ion-item> -->
+
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-icon name="book" class="yel-col"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>
+                <h3>Class</h3>
+                <div>{{userData.combination}}  -  {{userData.batch}} </div>
+            </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-icon name="mail" class="yel-col"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>
+                <h3>Academic Year</h3>
+                <div>{{userData.academic_year}}</div>
+            </ion-label>
+        </ion-item>
+
+        <!-- <ion-item>
+            <ion-thumbnail slot="start">
+                <ion-icon name="calendar" class="yel-col"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>
+                <h3>Academic Period</h3>
+                <div>{{userData.academic_period}}</div>
+            </ion-label>
+        </ion-item> -->
+
+        <!-- .//LOGOUT -->
+
+        <!-- <ion-button
+      shape="round"
+      style="margin-top: 20px;margin-bottom: 50px;"
+      class="das"
+      (click)="logot()"
+    >
+      Logout
+    </ion-button> -->
+    </div>
+</ion-content>

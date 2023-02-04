@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar color="menu">
+    <ion-buttons slot="start">
+      <ion-menu-button (click)="menuIs()"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Home </ion-title>
+    <!-- <ion-buttons slot="end">
+      //(click)="presentPopover()" routerLink="/login"
+      <ion-button (click)="stud()">
+        <ion-icon name="person" class="prof"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover()">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <img src="assets/images/clg.png"  /> -->
+  <img src="assets/images/banner_2.png" style="width: 100%;
+  height: 202px;" alt="" />
+  
+    <!-- <ion-row class="seg">
+      <ion-col class="seg-btn">
+        <div style="text-align: center;
+        margin-bottom: 17px; margin-top: -7px;">
+        <img class="img1" src="assets/images/profile.png" />
+        <ion-label class="label">Profile</ion-label>
+        </div>
+        
+      </ion-col>
+      <ion-col>
+        <div style="text-align: center;
+        margin-bottom: 17px; margin-top: -11px;">
+        <img class="img1" src="assets/images/notification.png" />
+        <ion-label class="label">Notifications</ion-label>
+        <span *ngIf="sms_count" class="sms_c">{{sms_count}}</span>
+        </div>
+      </ion-col>
+    </ion-row> -->
+  
+  <ion-segment class="seg" value="profile">
+    <ion-segment-button value="profile" class="seg-btn" (click)="rout('/profile')" >
+      <img class="img1" src="assets/images/profile.png" />
+      <ion-label class="label">Profile</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="notification" (click)="rout('/noti')">
+      <img class="img1" src="assets/images/notification.png" />
+      <ion-label class="label">Notifications</ion-label>
+      <span *ngIf="sms_count" class="sms_c">{{sms_count}}</span>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-grid style="background: #620b23; height: 57%">
+    <ion-row></ion-row>
+    <ion-row></ion-row>
+    <ion-row style="margin-top: 60px;
+    margin-bottom: 60px;">
+      <ion-col size="4" class="line"> 
+        <div style="text-align: center;
+        margin-bottom: 17px;" (click)="rout('/attendanc')">
+          <img class="img1" src="assets/images/attendance.png" />
+          <ion-label class="label">Attendance</ion-label>
+        </div>
+        
+      </ion-col>
+      <ion-col size="4" class="line"> 
+        <div style="text-align: center;
+        margin-bottom: 17px;"
+        (click)="rout('/circular')">
+          <img class="img1" src="assets/images/circular.png" />
+          <ion-label class="label">Assignment / Notice</ion-label>
+          </div>
+      </ion-col>
+      <ion-col size="4"> 
+        <div style="text-align: center;
+        margin-bottom: 17px;"
+        (click)="rout('/calendar')">
+          <img class="img1" src="assets/images/calendar.png" />
+          <ion-label class="label">Calendar</ion-label>
+          </div>
+      </ion-col>
+      <ion-col size="4" class="line line1"> 
+        <div style="text-align: center;
+        margin-bottom: 17px;"
+        (click)="rout('/timetable')">
+          <img class="img1" src="assets/images/timetable.png" />
+          <ion-label class="label">TimeTable</ion-label>
+          </div>
+      </ion-col>
+      <ion-col size="4" class="line line1"> 
+        <div style="text-align: center;
+        margin-bottom: 17px;
+        margin-top: -5px"
+        (click)="rout('/marks-list')">
+          <img class="img1" src="assets/images/progress-report.png" />
+          <ion-label class="label">Progress Report</ion-label>
+          </div>
+      </ion-col>
+      <ion-col size="4" class="line1"> 
+        <div style="text-align: center;
+        margin-bottom: 17px;"
+        (click)="rout('/fee-payment')">
+          <img class="img1" src="assets/images/fee.png" />
+          <ion-label class="label">Fee</ion-label>
+          </div>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+</ion-content>

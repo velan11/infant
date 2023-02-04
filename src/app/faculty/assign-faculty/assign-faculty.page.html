@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-toolbar color="menu">
+        <ion-buttons slot="start">
+            <ion-button routerLink="/dashboard">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title> Assignment / Notice </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="!FacSub_data">
+        <div class="ion-padding custom-skeleton">
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </div>
+    
+        <div class="ion-padding custom-skeleton">
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </div>
+    
+        <div class="ion-padding custom-skeleton">
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </div>
+      </div>
+    <ion-grid *ngIf="FacSub_data">
+        <ion-row class="HeadData">
+            <ion-col size="3"> Class </ion-col>
+            <ion-col size="3"> Division </ion-col>
+            <ion-col size="4"> Subject </ion-col>
+            <ion-col size="2"> Action </ion-col>
+        </ion-row>
+        <ion-row *ngIf="SubjectData.length==0">
+            <ion-col size="12"> No data found </ion-col>
+        </ion-row>
+        <div class="valData" *ngIf="SubjectData.length!=0">
+            <ion-row *ngFor="let d of SubjectData">
+                <ion-col size="3"> {{d.class}} </ion-col>
+                <ion-col size="3"> {{d.division}} </ion-col>
+                <ion-col size="4"> {{d.subject_name}} </ion-col>
+                <ion-col size="2" (click)="action(d)">
+                    <ion-icon name="create"></ion-icon>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+</ion-content>

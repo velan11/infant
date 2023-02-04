@@ -1,0 +1,56 @@
+.unread {
+  text-align: center;
+  background: #ae5c50;
+  color: #ffffff;;
+  h4 {
+    color: #ffffff;
+  }
+  p {
+    span {
+      color: #ffffff;
+    }
+  }
+}
+.read_hdr {
+  float: right;
+  color: #cc897f;
+}
+.unread_hdr {
+  float: right;
+  color: #ffffff;
+  // color: #ae5c50;
+}
+.readd {
+  text-align: center;
+  background: #dcdcdc;
+  color: #020202;
+  h4 {
+    color: #ae5c50;
+  }
+  p {
+    span {
+      color: #020202;
+    }
+  }
+}
+
+.time {
+  float: right;
+  margin: 4px;
+  //  color: #000;
+}
+h4,
+p {
+  margin: 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 1.2em;
+  white-space: nowrap;
+}
+h4 {
+  // text-align: center;
+  margin: 8px;
+  margin-left: 5px;
+  font-size: 14px;
+  margin-bottom: 0;
+}

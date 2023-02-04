@@ -1,0 +1,85 @@
+<ion-header>
+    <ion-toolbar color="menu">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <!-- <span class="ion-padding back_butt" style="font-size: 18px;">
+      Calendar
+    </span> -->
+
+        <ion-title>Calendar</ion-title>
+
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row style="margin-top: 25px;">
+            <ion-col size="3">
+                <div class="btn btn-primary" 
+                mwlCalendarPreviousView 
+                [view]="view" 
+                [(viewDate)]="viewDate" 
+                (viewDateChange)="closeOpenMonthViewDay(viewDate)"
+                style="padding: 15px 0px 9px 6px;"
+                >
+                <ion-icon name="arrow-back-circle"></ion-icon>
+                </div>
+            </ion-col>
+
+            <ion-col size="6">
+
+                <h3 no-margin>
+                    {{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}
+                </h3>
+            </ion-col>
+
+            <ion-col size="3">
+                <div class="btn btn-primary" 
+                mwlCalendarNextView 
+                [view]="view" 
+                [(viewDate)]="viewDate" 
+                (viewDateChange)="closeOpenMonthViewDay(viewDate)"
+                style="padding: 15px 0px 9px 6px;"
+                >
+                  <ion-icon name="arrow-forward-circle"></ion-icon>
+                </div>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+    <div class="row ion-text-center"></div>
+    <br />
+    <div [ngSwitch]="view" class="ion-padding" *ngIf="lyt">
+        <mwl-calendar-month-view 
+        *ngSwitchCase="CalendarView.Month" 
+        [viewDate]="viewDate" 
+        [events]="events" 
+        class="da" 
+        [refresh]="refresh" 
+        [activeDayIsOpen]="activeDayIsOpen" 
+        (dayClicked)="dayClicked($event.day)" 
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+            (eventTimesChanged)="eventTimesChanged($event)">
+        </mwl-calendar-month-view>
+    </div>
+    <!-- /////table bottom -->
+    <div *ngIf="keyValueCalendar">
+        <!-- {{this.viewDate}}  -->
+        <div *ngFor="let d of keyValueCz">
+            <ion-card style="padding: 10px 20px; " class="cardss">
+                <h4 [style.color]="d.color" style="font-size: 19px;">{{d.name}}</h4>
+                <p>Event Date - {{d.date}}</p>
+                <p>Description - {{d.event}}</p>
+
+            </ion-card>
+
+        </div>
+
+
+    </div>
+
+
+
+</ion-content>

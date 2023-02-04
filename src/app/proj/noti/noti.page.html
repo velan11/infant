@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar color="menu">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Notifications </ion-title>
+       
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngFor="let no of notifi">
+        <ion-card (click)="read_noti(no.id,no)" style="text-align: left;padding: 0px 10px; " [ngClass]="no.read==0 ? 'unread' : 'readd'">
+            <h4 *ngIf="no.type=='ATTENDANCE'">
+                Attendance
+                <span><ion-icon
+                    name="mail"
+                    *ngIf="no.read==0"
+                    class="unread_hdr"
+                ></ion-icon></span>
+
+                <span><ion-icon
+                    name="mail-open"
+                    *ngIf="no.read!=0"
+                    class="read_hdr"
+                ></ion-icon></span>
+            </h4>
+            
+            <h4  *ngIf="no.type!='ATTENDANCE'">
+                Notice<span><ion-icon
+            name="mail"
+            *ngIf="no.read==0"
+            class="unread_hdr"
+          ></ion-icon
+        ></span>
+
+                <span><ion-icon
+            name="mail-open"
+            *ngIf="no.read!=0"
+            class="read_hdr"
+          ></ion-icon
+        ></span>
+            </h4>
+
+            <!-- [ngClass]="no.read==0 ? 'unread_hdr' : 'read_hdr'" -->
+            <!-- | date:'MMM d yy, h:mm a' -->
+            <p>{{no.message}}<br /></p>
+            <!-- <p class="time">{{no.date| date:'MMM dd yy, h:mm a'}}</p> -->
+            <p class="time">{{datP(no.date)}}</p>
+        </ion-card>
+    </div>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more Notifications...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <ion-card *ngIf="none==true" style="text-align: center;color: #000;">
+        <h3>No Notifications</h3>
+        <img src="../../../assets/images/noti.png" class="imf" />
+    </ion-card>
+</ion-content>

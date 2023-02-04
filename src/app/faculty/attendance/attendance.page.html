@@ -1,0 +1,350 @@
+<ion-header>
+  <ion-toolbar color="menu">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="class-list"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Attendance</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button shape="round" size="small" class="view_button" (click)="ViewSheet()" color="tertiary">
+          View Sheet
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button shape="round" size="small" class="view_button" (click)="ViewStatemnt()" color="tertiary">
+          View Statement
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <span *ngIf="displayFac">
+    <ion-row class="ion-row_up">
+      <ion-col size="7">
+        <span class="span_line"><span class="span_bold">Class:</span> {{facData.class}}</span>
+      </ion-col>
+      <ion-col>
+        <span class="span_line"> <span class="span_bold">Batch:</span> {{facData.batch}}</span>
+      </ion-col>
+    </ion-row>
+  </span>
+  <!-- Card Format --->
+  <span *ngIf="hide">
+    <ion-card padding class="card_hour">
+      <ion-row>
+        <ion-col>
+          <ion-label class="lable_color span_bold">Progressive Peroid</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label class="label_text"> {{PHour}}</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label class="lable_color span_bold"> Date</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-datetime 
+          style="background: #ae5c50;
+                color: #fff;
+                padding: 5px 10px;
+                margin-top: 0px !important;
+                opacity: 1;
+                float: right;
+                height: 25px;
+                font-size: 13px;
+                width:72%;" display-format="DD MMM YYYY"
+            (ionChange)="displayList()" min="{{fromDate}}" max="{{setDate}}" [(ngModel)]="attndDate"></ion-datetime>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="pl-0">
+          <ion-label class="lable_color span_bold">Interval</ion-label>
+          <ion-select [(ngModel)]="inrval" interface="popover" class="drop select_width"
+          (ionChange)="intervalDetails(interval)"
+          *ngIf="showTot">
+
+            <ion-select-option *ngFor="let t of interval" selected="t.id == inrval" [value]="t.id"
+              class="selecte_option">{{t.name}}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-row class="blue-bg">
+            <ion-col size="4"></ion-col>
+            <ion-col size="5">
+              <ion-button class="mt-0" [disabled]="disabled" tappable shape="round" size="small" fill="outline"
+                (click)="GetNewAttdance()" color="tertiary" >Continue</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <div class="alert-success">
+      <p style="text-align: center;">Summary of Attendance Entered on ({{attndDate|date: 'dd/MM/yyyy'}})</p>
+    </div>
+    <!----List Of Attendances -->
+    <div class="thumnails">
+      <div class="list-thumbnail">
+        <div class="img-thumb">
+          <ion-grid>
+            <ion-row class="blue-bg1 row-text att">
+              <ion-col size="2" class="ion-text-center">
+                Progressive Peroid
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                Interval
+              </ion-col>
+              <!-- <ion-col size="2" class="ion-text-center">
+                Teacher
+              </ion-col> -->
+              <ion-col size="3" class="ion-text-center">
+                Created
+              </ion-col>
+              <ion-col size="3" class="ion-text-center">
+                Last Updated
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                Action
+              </ion-col>
+            </ion-row>
+            <ion-row *ngFor="let a of TakenAttdance" class="att row-text">
+              <ion-col size="2" class="ion-text-center">
+                {{a.progressive_hour}}
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                {{a.interval_name}}
+              </ion-col>
+              <!-- <ion-col size="2" class="ion-text-center">
+                {{a.faculty_name}}
+              </ion-col> -->
+              <ion-col size="3" class="ion-text-center">
+                {{a.created_at | date: "d-MMM, h:mm a"}}
+              </ion-col>
+              <ion-col size="3" class="ion-text-center">
+                {{a.updated_at | date: "d-MMM, h:mm a"}}
+              </ion-col>
+              <ion-col size="2" class="ion-text-center">
+                <ion-button [disabled]="a.faculty_id!=facId" size="small" (click)="hide=false;UpdateAttd(a)"
+                  color="tertiary">
+                  <ion-icon name="add-circle-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+    <!--- End List Of Attendances -->
+  </span>
+
+  <!----- Attedance Student Select Page ---->
+  <span *ngIf="!hide">
+    <ion-card padding class="card_hour">
+      <ion-row>
+        <ion-col>
+          <ion-label class="lable_color span_bold">Progressive Peroid</ion-label>
+        </ion-col>
+        <ion-col class="label_text">{{PHour}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label class="lable_color span_bold"> Date</ion-label>
+        </ion-col>
+        <ion-col class="label_text"> {{displyDate|date: 'dd/MM/yyyy'}} </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label class="lable_color span_bold"> Interval </ion-label>
+        </ion-col>
+        <ion-col class="label_text">{{interval_name}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="save_btn blue-bg">
+          <ion-chip class="back-btn" (click)="back()">
+            <ion-label>Back</ion-label>
+          </ion-chip>
+          <ion-button *ngIf="saveBtn" class="save" shape="round" (click)="Save()" color="tertiary">Save</ion-button>
+          <ion-button shape="round" *ngIf="update" class="save" (click)="UpdateSave()" color="tertiary">Update
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-row>
+      <ion-col>
+        <ion-toolbar class="search">
+          <ion-searchbar class="search-col" [(ngModel)]="searchTerm" (ionInput)="getItems($event)" color="primary"
+            debounce="500"  ></ion-searchbar>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-row>
+          <ion-col class="ion-col-p colpadding">
+            <ion-checkbox [(ngModel)]="chec" (ionChange)="selectAll(chec)"></ion-checkbox> Students
+            &nbsp;&nbsp;&nbsp;{{getStudentList?.length}} entries
+            <div class="item1">
+              <div class="thumnails">
+                <div class="list-thumnail">
+                  <ion-progress-bar *ngIf="ShowProgrs" type="indeterminate"></ion-progress-bar>
+                </div>
+                <ion-list>
+                  <ion-grid *ngFor="let s of getStudentList; let i = index;" class="animated lightSpeedIn item-wrap">
+                    <ion-row class="border">
+                      <ion-col size="12">
+                        <ion-checkbox *ngIf="chec" disabled="true" checked="true"></ion-checkbox>
+                        <ion-label class="label_ion" (click)="pushAbsent(s,i)">{{s.student_name}}</ion-label>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-list>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col class="ion-col-p colpadding">
+            <ion-checkbox [(ngModel)]="check2" (ionChange)="selectAllabsent(check2)"></ion-checkbox> Absentees &nbsp;
+            {{PushAbsent.length}} entries
+            <div class="item1 item-absent">
+              <div class="thumnails">
+                <div class="list-thumnail">
+                  <ion-progress-bar *ngIf="ShowProgrs" type="indeterminate"></ion-progress-bar>
+                  <ion-grid class="animated lightSpeedIn item-wrap" *ngFor="let s of PushAbsent;let i =index;">
+                    <ion-row class="hover_stud border">
+                      <ion-col size="12">
+                        <ion-checkbox *ngIf="check2" disabled="true" checked="true"></ion-checkbox>
+                        <ion-label class="label_ion" (click)="pushPresent(s.check,s,i)">{{s.student_name}}</ion-label>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </div>
+              </div>
+            </div>
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+              <ion-fab-button>
+                <ion-icon name="add"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-fab *ngIf="chec" (click)="pushAll()" vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button>
+         <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab *ngIf="check2" (click)="pushpresentAll()" vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button>
+          <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </span>
+
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span (click)="closeModel()" class="close">&times;</span>
+      <h6>ATTENDANCE SUMMARY</h6>
+      <span style="color: red;">{{err}}</span>
+      <!-- <ion-row>
+        <ion-col>
+          <strong>Description</strong>
+        </ion-col>
+        <ion-col>
+          <strong>Details</strong>
+        </ion-col>
+      </ion-row> -->
+      <ion-row>
+        <ion-col>Class</ion-col>
+        <ion-col>{{facData?.class}}  {{facData?.batch}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Progressive Peroid</ion-col>
+        <ion-col>{{PHour}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Attendance Date</ion-col>
+        <ion-col>{{attndDate | date: 'dd/MM/yyyy'}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Interval</ion-col>
+        <ion-col>{{interval_name}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Total No of Absentees</ion-col>
+        <ion-col>{{PushAbsent.length}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Absentees</ion-col>
+        <ion-col>
+          <ion-spinner *ngIf="spinerShow" name="lines-small"></ion-spinner>
+          <span *ngFor="let a of PushAbsent" class="abst">
+            {{a.roll_no}}
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button class="align_btn" (click)="confirmSave()" color="tertiary">Confirm</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+  <div id="UpdateModel" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span (click)="closeUpdteModel()" class="close">&times;</span>
+      <h6>ATTENDANCE SUMMARY</h6>
+      <!-- <ion-row>
+        <ion-col>
+          <strong> Description</strong>
+        </ion-col>
+        <ion-col>
+          <strong> Details</strong>
+        </ion-col>
+      </ion-row> -->
+      <ion-row>
+        <ion-col>Class</ion-col>
+        <ion-col>{{facData?.class}} {{facData?.batch}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Progressive Peroid</ion-col>
+        <ion-col>{{UpdateData.progressHur}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Attendance Date</ion-col>
+        <ion-col>{{UpdateData.Date | date: 'dd/MM/yyyy'}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Interval</ion-col>
+        <ion-col>{{UpdateData.interval}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Total No of Absentees</ion-col>
+        <ion-col>{{PushAbsent.length}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Absentees</ion-col>
+        <ion-col>
+          <ion-spinner *ngIf="spinerShow" name="lines-small"></ion-spinner>
+          <span *ngFor="let a of PushAbsent" class="abst">
+            {{a?.roll_no}}
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button class="align_btn" (click)="confirmUpdate()" color="tertiary">Confirm</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

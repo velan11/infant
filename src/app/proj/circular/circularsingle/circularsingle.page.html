@@ -1,0 +1,126 @@
+<ion-header>
+    <ion-toolbar color="menu">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="circular"></ion-back-button>
+        </ion-buttons>
+        <!-- <span style="font-size: 18px;">
+      
+    </span> -->
+        <ion-title>Assignment / Notice</ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+
+<!-- <ion-grid>
+      <ion-row>
+        <ion-col><h6 class="desc-title">Title</h6>
+          {{ this.noticeBoardInfo.title }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h6 class="desc-title">Description</h6>
+          <zoom-area
+            [(scale)]="scale"
+            (afterZoomIn)="afterZoomIn($event)"
+            (afterZoomOut)="afterZoomOut($event)"
+            [(controls)]="showControls"
+          >
+            <span [innerHTML]="description" imageViewer></span>
+          </zoom-area>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   -->
+
+<ion-content>
+
+    <div *ngIf="noticeData" style="padding: 35px 0 1px 0;
+    border-bottom: 2px solid #620b23;
+    ">
+        <span class="label"><img class="img1" src="assets/images/calendar.png" /><span style="padding: 10px;">{{ noticeData.notice_date }}</span></span><br/>
+        <br/>
+
+        <ion-item class="row">
+            <ion-grid style="margin: -10px 0 -10px 0;">
+                <ion-row>
+                    <ion-col size="3">
+                        <h4 style="font-size: 15px; font-weight: 700;">
+                            Title
+                        </h4>
+                    </ion-col>
+                    <ion-col size="9">
+                        <h6  style="font-size: 15px;">
+                            {{noticeData.title}}
+                        </h6>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+           
+            
+        </ion-item>
+        <ion-item class="row">
+            <ion-grid style="margin: -10px 0 -10px 0;">
+                <ion-row>
+                    <ion-col size="3">
+                        <h4 style="font-size: 15px; font-weight: 700;">
+                            Subject
+                        </h4>
+                    </ion-col>
+                    <ion-col size="9">
+                        <h6  style="font-size: 15px;">
+                            {{noticeData.subject_name}}
+                        </h6>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+        <ion-item class="row">
+            <ion-grid style="margin: -10px 0 -10px 0;">
+                <ion-row>
+                    <ion-col size="3">
+                        <h4 style="font-size: 15px; font-weight: 700;">
+                            Faculty
+                        </h4>
+                    </ion-col>
+                    <ion-col size="9">
+                        <h6 style="font-size: 15px;">
+                            {{noticeData.faculty_name}}
+                        </h6>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+       <div style="position: relative;
+       left: 4px;">
+        <h4 style="font-size: 15px; font-weight: 700;">
+            Description
+         </h4>
+         <div [innerHTML]="html(noticeData.content)" 
+             style="font-size: 15px;
+                  position: relative;
+                 right: 10px;
+                 bottom: 10px;
+                 ">
+         </div>
+         <ul *ngIf="noticeData.files" style="position: relative;
+         right: 18px;
+         bottom: 30px;
+         font-size: 18px;">
+             <li *ngFor="let file of noticeData.files;let i=index" style="padding: 10px;text-decoration: underline;" (click)="fileopen(file)">
+                 Download File - {{i+1}}</li>
+         </ul>
+       </div>
+        
+
+    </div>
+    <div *ngIf="noticeData">
+        <!-- {{noticeData|json}} -->
+        <ion-card *ngIf="noticeData.length==0" style="text-align: center;color: #000;margin: 15px;">
+            <h3>No Assignment / Notice</h3>
+
+            <img src="../../../assets/images/noti.png" class="imf" />
+        </ion-card>
+    </div>
+
+</ion-content>

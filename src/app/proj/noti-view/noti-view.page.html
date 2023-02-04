@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="menu">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="noti"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Notifications</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card padding style="background: #dcdcdc;color: #020202;" >
+    <ion-card-header>
+      <h4 no-margin *ngIf="type=='ATTENDANCE'" style="color: #ae5c50;" >Attendance</h4>
+      <h4 no-margin *ngIf="type!='ATTENDANCE'" style="color: #ae5c50;">Notice</h4>
+    </ion-card-header>
+    <ion-card-content style="bottom: 15px;">
+      <p class="mes_d">{{message}}</p>
+    </ion-card-content>
+   
+  </ion-card>
+</ion-content>

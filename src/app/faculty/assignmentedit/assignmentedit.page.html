@@ -1,0 +1,144 @@
+<ion-header>
+    <ion-toolbar color="menu">
+        <ion-buttons slot="start">
+            <ion-button (click)="back()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title *ngIf="headerr == 'Edit Notices'"> Edit Assignment / Notice </ion-title>
+        <ion-title *ngIf="headerr == 'Add Notices'"> Add Assignment / Notice </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form  [formGroup]="changeForm">
+        <span *ngIf="!hide">
+            <ion-item *ngIf="listData.length>0">
+                <ion-label style="width: 50%;" class="label">Type</ion-label>
+                <ion-select slot="end" placeholder="Select Type"  formControlName="type">
+                    <ion-select-option *ngFor="let data of listData" [value]="data.id">{{data.notices_type}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label class="label">Title</ion-label>
+                <ion-input formControlName="title"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+                <ion-label position="floating">Description</ion-label>
+                <ion-textarea [(ngModel)]="desc"></ion-textarea>
+            </ion-item> -->
+            <br/>
+            <ion-label style="padding-left: 15px" class="label" >Description</ion-label>
+            <br/><br/>
+            <div *ngIf="loadData">
+                <quill-editor    
+                [modules]="modules"
+                formControlName="desc"
+                (ContentChanged)="onEditorContentChange($event)"
+                placeholder="Insert Description here..."
+                ></quill-editor>
+            </div>
+            <br/>
+            <ion-label style="padding-left: 15px" class="label" >Upload Files</ion-label>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="8">
+                        <ion-button *ngIf="!isType" (click)="uploadFile()"> Choose Image</ion-button>
+                        <div  *ngIf="isType">
+                            <div id="yourBtn" (click)="getFile()">Choose File</div>
+                            <!-- this is your file input tag, so i hide it!-->
+                            <!-- i used the onchange event to fire the form submission-->
+                            <div style='height: 0px;width: 0px; overflow:hidden;'> 
+                                <input  accept="application/pdf" class="file"  id='fileInput' type="file" (change)="onFileChange($event)" class="custom-file-upload" />
+                            </div>
+                        </div>
+                       
+                       
+                         
+                    </ion-col>
+                    <ion-col size="4">
+                        <ion-select  formControlName="fileType" [(ngModel)]="fileType" (ionChange)="changeValue(fileType)"  placeholder="Select Type"  >
+                            <ion-select-option value="image">Image</ion-select-option>
+                            <ion-select-option value="file">File</ion-select-option>
+                        </ion-select>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-grid>
+                <ion-row *ngFor="let a of fileList; let i=index">
+                    <ion-col size="9" *ngIf="a.fileType == 'file'"> <span>{{ a.fileName }}</span> </ion-col>
+                    <ion-col size="9" *ngIf="a.fileType == 'image'"> 
+                        <img [src]="a.base64" alt="">
+                    </ion-col>
+                    <ion-col size="3"><span style="color: #690d01fc;" (click)="removeFile(i)">Remove</span></ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-grid *ngIf="files">
+                <ion-row>
+                    <ion-col class="ion-text-center"><h3>Uploaded Files</h3></ion-col>
+                </ion-row>
+                <ion-row *ngFor="let file of files; let i=index">
+                    <ion-col size="9" *ngIf="file.upload_type == 'FILE'">
+                        <span style="color: #06c;" (click)="viewDocument(file)">View Document -  {{i+1}}</span>
+                    </ion-col>
+                    <ion-col size="9" *ngIf="file.upload_type == 'IMAGE'"> <img [src]="file.name" alt=""></ion-col>
+                    <ion-col size="3"><span style="color: #690d01fc;" (click)="removeUFile(i, file.file_id)">Remove</span></ion-col>
+                </ion-row>
+            </ion-grid>
+           
+          
+            <div style="text-align: center; padding-top: 15px">
+                <!-- <ion-button (click)="edit()" [disabled]="!changeForm.valid" *ngIf="headerr == 'Edit Notices'">
+                    Update</ion-button>
+                <ion-button (click)="create()" [disabled]="!changeForm.valid" *ngIf="headerr != 'Edit Notices'">
+                    Submit</ion-button> -->
+    
+                <ion-button [disabled]="!changeForm.valid" (click)="continue()">Continue</ion-button>
+            </div>
+        </span>
+         </form>
+        <span *ngIf="hide">
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                      <ion-toolbar class="search">
+                        <ion-searchbar class="search-col"  color="primary"
+                          debounce="500" [(ngModel)]="searchTerm" (ionInput)="getItems($event)"  ></ion-searchbar>
+                      </ion-toolbar>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-grid class="animated lightSpeedIn item-wrap">
+                            <ion-row>
+                                <ion-col size="1"><ion-checkbox [(ngModel)]="chec" (ionChange)="selectAll(chec)" ></ion-checkbox></ion-col>
+                                <ion-col size="3">Roll No.</ion-col>
+                                <ion-col size="8">Name</ion-col>
+                            </ion-row>
+                        </ion-grid>
+
+                        <ion-grid class="animated lightSpeedIn item-wrap">
+                            <ion-row class="border" *ngFor="let student of studentList">
+                                <ion-col size="1">
+                                    <ion-checkbox  [checked]=" checkStudents[student.id]" [value]="student.id"  (ionChange)="getStudent(student.id, $event)"></ion-checkbox>
+                                </ion-col>
+                                <ion-col size="3"> <ion-label class="label_ion" >{{student.roll_no}}</ion-label></ion-col>
+                                <ion-col size="8"> <ion-label class="label_ion" >{{student.student_name}}</ion-label></ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <br/><br/><br/>
+            <div class="footer-btn">
+                <ion-button (click)="edit()" [disabled]="!sendAssign" *ngIf="headerr == 'Edit Notices'">
+                    Update</ion-button>
+                <ion-button (click)="create()" [disabled]="!sendAssign" *ngIf="headerr != 'Edit Notices'">
+                    Submit</ion-button>
+    
+                
+            </div>
+        </span>
+        
+   
+    
+</ion-content>

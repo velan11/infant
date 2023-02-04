@@ -1,0 +1,87 @@
+.ion-clder {
+  background-color: white !important;
+  color: rgb(216, 29, 29) !important;
+}
+.abscent {
+  background: #222428;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  border-radius: 30px;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+.holiday {
+  color: rgb(254, 245, 255) !important;
+  background-color: #c74c4e !important;
+}
+
+ion-calendar {
+  .unavailableDay {
+    background-color: #f70e0e !important;
+    p {
+      color: white !important;
+    }
+  }
+}
+.tabl {
+  ion-row {
+    border-right: 1px solid #746d6d;
+  }
+  ion-col {
+    border: 1px solid #746d6d;
+    border-bottom-width: inherit;
+    border-right-width: inherit;
+  }
+}
+ion-col {
+  text-align: center;
+  ion-icon {
+    font-size: 24px;
+    margin-top: 1px;
+    color: #ae5c50;
+  }
+  // border: 1px solid rgb(116, 109, 109);
+}
+ion-grid {
+  padding: 0 5px !important;
+  p {
+    margin: 1px 0;
+  }
+}
+
+.actived_Date {
+  .cal-month-view .cal-cell-top {
+    background-color: red;
+  }
+}
+// ion-row:nth-last-child(2) {
+//   background: red;
+// }
+.abst_list ion-row:last-child {
+  border-bottom: 1px solid #746d6d;
+}
+
+.a_list ion-row:first-child {
+  border-top: 1px solid #746d6d;
+}
+.no_data {
+  border-bottom: 1px solid #746d6d;
+}
+
+.sms_c {
+  position: absolute;
+  left: 20px;
+  color: white;
+  background: #b94a48;
+  width: 20px;
+  height: 18px;
+  border-radius: 45%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 12px;
+  font-weight: 700;
+}

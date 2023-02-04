@@ -1,0 +1,182 @@
+<ion-header>
+  <ion-toolbar color="menu">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="attendance" ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Attendance Statement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="thumnails">
+    <div class="list-thumbnail">
+      <div class="img-thumb">
+        <ion-grid *ngIf="showList"  text-center class="grid-bordered">
+          <ion-row class="row-text">
+            <ion-col size="1.5">
+              Roll No
+            </ion-col>
+            <ion-col size="3.5">
+              Student Name
+            </ion-col>
+            <ion-col size="0.7">
+              Conducted
+            </ion-col>
+            <ion-col size="0.7">
+              Attended
+            </ion-col>
+            <!-- <ion-col size="1">
+              Exempt
+            </ion-col>
+            <ion-col size="0.7">
+              %
+            </ion-col>
+            <ion-col size="0.9">
+              Excused
+            </ion-col>
+            <ion-col size="0.8">
+              Allowed
+            </ion-col> -->
+           
+            <ion-col size="0.7">
+              Absent
+            </ion-col>
+            <ion-col size="0.7">
+              %
+            </ion-col>
+            <ion-col  >
+              Absent Dates
+            </ion-col>
+          </ion-row>
+          <ion-virtual-scroll  [items]="viewStatment" approxItemHeight="20px" >
+            <ion-row class="row-text" *virtualItem="let s;let i=index" [ngClass]="s.shortage =='Y'?'cat':'rat'"  >
+              <ion-col size="1.5" > 
+                {{s.roll_no}}
+              </ion-col>
+              <ion-col size="3.5" style="text-align: left;">
+                {{s.student_name}}
+              </ion-col> 
+              <ion-col size="0.7">
+                {{s.conducted}}
+              </ion-col>
+              <ion-col size="0.7">
+                {{s.attended}}
+              </ion-col>
+              <!-- <ion-col size="1">
+                {{s.exempt}}
+              </ion-col>
+              <ion-col size="0.7">
+                {{s.percetage}}
+              </ion-col>
+              <ion-col size="0.9">
+                {{s.excused}}
+              </ion-col>
+              <ion-col size="0.8">      
+                {{s.allowed}}
+              </ion-col> -->
+             
+              <ion-col size="0.7">
+                {{s.absent}}
+              </ion-col>
+              <ion-col size="0.7">
+                {{s.final_percentage}}
+              </ion-col>
+              <ion-col class="white_space" >
+                {{s.absent_dates}}
+              </ion-col>
+            </ion-row>
+          </ion-virtual-scroll>
+          <ion-row *ngIf="viewStatment?.length == 0">
+            <ion-col size="12">
+              No Data to Display
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid *ngIf="!showList"  text-center class="grid-bordered">
+          <ion-row class="row-text">
+            <ion-col size="1.5">
+              Roll No
+            </ion-col>
+            <ion-col size="3.5">
+              Student Name
+            </ion-col>
+            <ion-col size="0.7">
+              Conducted
+            </ion-col>
+            <ion-col size="0.7">
+              Attended
+            </ion-col>
+            <!-- <ion-col size="1">
+              Exempt
+            </ion-col>
+            <ion-col size="0.7">
+              %
+            </ion-col>
+            <ion-col size="0.9">
+              Excused
+            </ion-col>
+            <ion-col size="0.8">
+              Allowed
+            </ion-col> -->
+            <ion-col size="0.7">
+              Absent
+            </ion-col>
+            <ion-col size="0.7">
+              %
+            </ion-col>
+            <ion-col>
+              Absent Dates
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="displyShortage?.length == 0">
+            <ion-col size="12">
+              No Data to Display
+            </ion-col>
+          </ion-row>
+          <ion-row  class="row-text" ngClass="cat" *ngFor="let s of displyShortage">
+            <ion-col size="1.5">
+              {{s.roll_no}}
+            </ion-col>
+            <ion-col size="3.5" style="text-align: left;">
+              {{s.student_name}}
+            </ion-col>
+            <ion-col size="0.7">
+              {{s.conducted}}
+            </ion-col>
+            <ion-col size="0.7">
+              {{s.attended}}
+            </ion-col>
+            <!-- <ion-col size="1">
+              {{s.exempt}}
+            </ion-col>
+            <ion-col size="0.7">
+              {{s.percetage}}
+            </ion-col>
+            <ion-col size="0.9">
+              {{s.excused}}
+            </ion-col>
+            <ion-col size="0.8">
+              {{s.allowed}}
+            </ion-col> -->
+           
+            <ion-col size="0.7">
+              {{s.absent}}
+            </ion-col>
+            <ion-col size="0.7">
+              {{s.percetage}}
+            </ion-col>
+            <ion-col class="white_space" >
+              {{s.absent_dates}}
+            </ion-col>
+          </ion-row> 
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+<ion-footer> 
+  <ion-button (click)="showlist()" shape="round" expand="block" fill="{{fillType}}" size="small" color="tertiary">
+    {{btnText}}
+  </ion-button>
+</ion-footer>

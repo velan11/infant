@@ -1,0 +1,66 @@
+<ion-content class="login_container">
+  <span (click)="back()" class="back">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+  </span>
+  <!-- NEW Design-->
+  <div class="text-center" style="text-align: center;">
+    <img src="assets/images/banner_2.png" class="img-fluid" alt="" />
+  </div>
+
+  <!-- Start Parent Form -->
+  <div class="login-block loginForm">
+    <h3 class="login-text" *ngIf="page=='login_parents'">Parent Login</h3>
+
+    <h3 class="login-text" *ngIf="page=='login_staff'">Faculty Login</h3>
+
+
+    <!-- <ion-item *ngIf="page=='login_staff'">
+      <ion-label>Institution Id*</ion-label>
+      <ion-select placeholder="Select One">
+        <ion-select-option *ngFor="let ins of Institution" [value]="id">{{ins.name}}</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+
+
+    <ion-item color="transparent" class="ion-no-padding ion-margin-bottom">
+      <ion-label position="floating" *ngIf="page=='login_parents'">Mobile No / Email Id</ion-label>
+      <ion-label position="floating" *ngIf="page=='login_staff'">User Name</ion-label>
+      <ion-input [(ngModel)]="user" style="color: ffff;"></ion-input>
+    </ion-item>
+    <ion-item color="transparent" class="ion-no-padding ion-margin-bottom">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [type]="show ? 'text' : 'password'" [(ngModel)]="password" clearOnEdit="false" color="dark">
+      </ion-input>
+    </ion-item>
+
+    <div (click)="pass()" style=" margin:15px 0 10px 30px">
+      <ion-checkbox class="checkPassword" slot="start" style="margin-right: 5px;" (click)="pass()" color="medium"
+        [(ngModel)]="show"></ion-checkbox>
+      <span class="sh_pass">
+        Show Password
+      </span>
+    </div>
+
+
+
+    <div *ngIf="error" class="alert alert-danger ">
+      {{ error }}
+    </div>
+    <div class="ion-text-center ion-margin-bottom">
+      <ion-button (click)="login()" shape="round" color="tertiary">Login</ion-button>
+    </div>
+
+    <div class="btmText" *ngIf="page=='login_parents'">
+      New User!! Click here to
+      <span class="register" (click)="signup()">Register</span><br />
+      <span class="register" (click)="forgot()"> Forgot Password</span>
+    </div>
+  </div>
+
+  <!-- <div>
+    <span routerLink="/opem" class="back">
+      <ion-icon name="arrow-back"></ion-icon>
+    </span>
+  </div> -->
+  <!-- End of Parent Form -->
+</ion-content>

@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar color="menu">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+      <ion-title> Progress Report</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="examForm" >
+    <!-- <ion-item>
+      <ion-label floating
+        >Exam<span class="mandatory-asterick">*</span></ion-label
+      >
+        <ion-select  
+          formControlName="exam"
+          placeholder="Exam"
+          (ionChange)="getMarksInfo($event)">
+          <ion-select-option
+          *ngFor="let item of exam_practicular;"
+          [value]="item.exam_particular_id"
+          >{{item.name}}</ion-select-option>
+        </ion-select>
+    </ion-item> -->
+    <ion-item>
+      <ion-label floating
+        >Exam</ion-label
+      >
+        <ion-select  
+          formControlName="examType"
+          placeholder="Select"
+          (ionChange)="getProgressInfo($event)"
+          >
+          <ion-select-option
+            *ngFor="let item of exam_type;"
+            [value]="item.assessment_particular_id"
+          >
+            {{item.name}}
+          </ion-select-option>
+        </ion-select>
+    </ion-item>
+   
+  </form>
+  <ion-grid class="tabl" *ngIf="isMarks">
+    <ion-row>
+      <ion-col><h2 style="font-weight: bold;">{{examList }} Progress Report</h2></ion-col>
+    </ion-row>
+    <ion-row class="a_list">
+      <ion-col size="4">
+        <p>Subject</p>
+      </ion-col>
+      <ion-col size="4">
+        <p>Attendance</p>
+      </ion-col>
+      <ion-col size="4">
+        <p>Marks</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="abst_list" *ngFor="let subject of subjects">
+      <ion-col size="4">
+          <p style="text-align: left;">{{subject}}</p>
+      </ion-col>
+      <ion-col size="4" *ngIf="attendance">
+          <p>{{attendance[subject][0]['attended']}} / {{attendance[subject][0]['total_classes']}}</p>
+      </ion-col>
+      <ion-col size="4" *ngIf="!attendance">
+        <p>--</p>
+    </ion-col>
+      <ion-col size="4" *ngIf="marks[subject][0]">
+        <p>{{marks[subject][0]['marks'] ? marks[subject][0]['marks'] : '-'}} ({{marks[subject][0]['max_marks']}}/{{marks[subject][0]['min_marks']}})</p>
+      </ion-col>
+      <ion-col size="4" *ngIf="!marks[subject][0]">
+        <p>-</p>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row class="abst_list">
+      <ion-col size="8">Result</ion-col>
+      <ion-col size="4">{{marks['result']}}</ion-col>
+    </ion-row>-->
+    <ion-row>
+      <ion-col>
+        <ion-button class="mt-0" 
+          tappable 
+          shape="round"  
+          
+          color="tertiary"
+          (click)="downloadReport()"
+          >Download  Progress Report</ion-button>
+      </ion-col>
+    </ion-row> 
+    
+  </ion-grid>
+  <ion-grid class="tabl" *ngIf="!isMarks">
+    <ion-row ><ion-col>{{message}}</ion-col></ion-row>
+  </ion-grid>
+</ion-content>

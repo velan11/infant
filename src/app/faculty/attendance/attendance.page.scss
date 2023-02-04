@@ -1,0 +1,239 @@
+.ion-row_up{
+    margin-top: 10px;
+}
+.span_line{
+    //   padding: 10px;
+    // padding-left: 5px;
+    margin: 5px;
+    font-size: 13px;
+    margin-top: 60px;
+
+    // border-bottom: 1px solid rgb(80, 117, 240);
+}
+
+ion-item.pl-0.ion-untouched.ion-pristine.ion-valid.item.md.ion-focusable.item-interactive.item-datetime.item-has-value.hydrated {
+    position: absolute;
+    bottom: -11px;
+
+}
+ion-item.pl-0.item.md.ion-focusable.item-interactive.item-datetime.item-has-value.hydrated.ion-valid.ion-touched.ion-dirty {
+    height: 6px;
+    position: relative;
+    top: -10px;
+}
+
+.lable_color{
+    color:black;
+    //  left:20px;
+}
+
+ion-select.drop.select_width.ng-untouched.ng-pristine.ng-valid.ion-untouched.ion-pristine.ion-valid.md.hydrated{
+    width: 35% !important;
+   
+}
+
+.span_bold {
+ font-weight: bold;
+}
+
+ion-select.drop.md.hydrated {
+    width: 35%;
+    background: #ae5c50;
+    color: #fff;
+    padding: 5px 10px;
+    margin-top:0px!important; 
+    opacity:1;
+    float: right;
+    height: 25px;
+    font-size: 13px;
+}
+
+.label_text{
+    padding: 5px 10px;
+    margin-top:0px!important; 
+    opacity:1;
+    float: right;
+    height: 25px;
+    font-size: 13px;
+    color: #000000;
+}
+
+            
+.abst { display: inline; list-style-type: none; }
+.abst:after { content: ", "; }
+.abst:last-child:after { content: " "; }
+
+.align_view {
+    margin-left: 83px !important;
+}
+
+.align_view1 {
+    margin-left: 20px !important;
+}
+
+.blue-bg{background:#fdd2d26e;padding:10px;}
+.save_btn{
+    text-align: center;
+    text-transform: none;
+    align-items: center;
+  
+}
+.back-btn{background: none;
+    color: var(--ion-color-dark-tint);
+    font-size: 12px;
+    padding: 5px 25px;
+    border: 1px solid var(--ion-color-medium-shade);
+}
+.save{ height: 75%;  margin: 0px;  font-size: 12px; position: relative;  top: -5px;}
+
+.ion-col-p{
+    // padding: 15px;
+    // margin: 5px;
+    // width: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    box-sizing: border-box;
+   
+    min-width: 10px;
+    border-color: whitesmoke;
+    background-color: white;
+}
+
+ion-col.ion-col-p.colpadding.md.hydrated {
+    padding: 8px;
+}
+.hour-col .ion-col-p{
+    font-weight: bold;
+    font-size: 12px;
+    background-color: white; 
+    padding: 8px 8px;
+}
+
+.item2,.item1 {
+    overflow: scroll;
+    height: 42vh;
+}
+.item1 { grid-area: 1 / 1 / 2 / 2; }
+.item-absent {
+    background: #fcf8e3;
+}
+
+.border {
+    border-bottom: 1px solid #8d8989;
+}
+
+.thumnails{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    .list-thumbnail{
+      height: 10%;
+      white-space: nowrap;
+      .img-thumb{
+        display: inline-block;
+        border: 0px solid rgb(211, 12, 12);
+        border-radius: 4px;
+        padding: 3px;
+        width: 105%; 
+        height: 100%;
+        margin:0 2px 0 0; 
+        line-height: 30px;
+      }
+    }
+}
+
+.label_ion{
+    font-size: 12px;
+    white-space: normal;
+    
+    &:hover{
+        background-color: red;
+    }
+}
+.label_ion:hover{
+    --background-color: rgb(228, 25, 25)!important;
+}
+.label_ion:hover{
+    background-color:rgb(240, 34, 34)!important;
+}
+
+.togle_btn{
+    margin-top: -32px;
+    opacity: -0.9;
+    height:3px;
+    width:135px;
+}
+
+.hover_stud:hover{
+    background-color:grey!important;
+}
+
+.att{ 
+    ion-col{
+        border:1px solid rgb(124, 124, 124);
+        // padding:8px;
+        font-size:12px;
+        color: var(--ion-color-dark-tint);  
+    }
+}
+.blue-bg1{
+    font-weight: bold;
+    // padding: 10px;
+}
+
+.row-text{
+    white-space: normal;
+    line-height: 15px;
+    font-size: 9px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content ion-col{ 
+    margin-right: 3px;
+    margin-top: 3px;
+    background: #ffebeb6e;
+    color: #434344;
+}
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.align_btn {
+    margin-left: 35%;
+}
+
+.view_button {
+    font-size: 13px;
+    width: 100%;
+}
+.alert-success {
+    padding: 0.2em 0.5em;
+    background-color: rgb(214, 255, 162);
+    margin: 10px;
+}

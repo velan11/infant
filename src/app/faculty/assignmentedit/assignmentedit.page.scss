@@ -1,0 +1,40 @@
+.file {
+          background: #690d01fc;
+    color: #690d01fc;
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#yourBtn {
+    position: relative;
+    width: 75%;
+    padding: 8px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    // border: 1px dashed #690d01fc;
+    text-align: center;
+    background-color: #690d01fc;
+    color: #FFFF;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+.footer-btn {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: white;
+    text-align: center;
+    z-index: 5;
+    padding: 15px;
+}
+.label {
+    color:  #ae5c50;
+    font-weight: 700;
+}

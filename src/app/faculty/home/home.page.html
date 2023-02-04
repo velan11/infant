@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-toolbar color="menu">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Home </ion-title>
+    <ion-buttons slot="end">
+
+      <!-- //(click)="presentPopover()" logOut() routerLink="/login" -->
+      <ion-button (click)="presentPopover()">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+  <!-- <ion-toolbar>
+    <ion-title> Hello {{Name}}</ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+  <p class="student_name"> Hello {{Name}}</p>
+  <div *ngIf="!FacSub_data">
+    <div class="ion-padding custom-skeleton">
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    </div>
+
+    <div class="ion-padding custom-skeleton">
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    </div>
+
+    <div class="ion-padding custom-skeleton">
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    </div>
+  </div>
+
+
+  <div *ngIf="FacSub_data">
+    <mat-accordion style="padding:0px !important">
+      <mat-expansion-panel [expanded]="true" class="animated slideInLeft delay-0s">
+        <mat-expansion-panel-header class="accordion-button">
+          <mat-panel-title>
+            Subjects
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3">
+              Class
+            </ion-col>
+            <ion-col size="3">
+              Division
+            </ion-col>
+            <ion-col size="3">
+              Subjects
+            </ion-col>
+            <ion-col size="3">
+              Action
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let s of FacSubjects">
+            <ion-col size="3">
+              {{s.class}}
+            </ion-col>
+            <ion-col class="divsion" text-center size="3">
+              {{s.division}}
+            </ion-col>
+            <ion-col size="3">
+              {{s.subject_code}}-{{s.subject_name}}
+            </ion-col>
+            <ion-col size="3">
+              <ion-button color="tertiary" size="small" shape="round" (click)="select(s)">
+                <ion-icon name="add"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="animated slideInRight delay-1s">
+        <mat-expansion-panel-header class="accordion-button">
+          <mat-panel-title>
+            Mandatory Subjects
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3">
+              Class
+            </ion-col>
+            <ion-col size="3" text-center>
+              Division
+            </ion-col>
+            <ion-col size="3">
+              Subjects
+            </ion-col>
+            <ion-col size="3">
+              Action
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let s of MandtorySub">
+            <ion-col size="3">
+              {{s.class}}
+            </ion-col>
+            <ion-col size="3">
+              {{s.division}}
+            </ion-col>
+            <ion-col size="3">
+              <!-- {{s.subject_code}} -->
+              {{s.subject_name}}
+            </ion-col>
+            <ion-col size="3">
+              <ion-button color="tertiary" size="small" shape="round" (click)="select(s)">
+                <ion-icon name="add"></ion-icon>
+              </ion-button>
+              <!-- Attend -->
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</ion-content>

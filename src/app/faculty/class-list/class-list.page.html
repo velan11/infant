@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="menu">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Attendance</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 class="ion-text-center">Class Attendance</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" class="ion-text-center">
+        Class
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">
+        Batch
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">
+        Action
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let s of FacClasses">
+      <ion-col size="4" class="ion-text-center">
+        {{s.class}}
+      </ion-col>
+      <ion-col class="divsion ion-text-center" size="4">
+        {{s.batch}}
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">
+        <ion-button color="tertiary" size="small" shape="round" (click)="select(s)" [disabled]="s.enable_attendnace == 'false'">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

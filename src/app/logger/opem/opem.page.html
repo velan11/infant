@@ -1,0 +1,31 @@
+
+<ion-content >
+  <div class="text-center" style="text-align: center;">
+    <img src="assets/images/banner_2.png" class="img-fluid" alt="" />
+  </div>
+
+  <div class="opem">
+    <h3>I am a </h3>
+    <p>
+      Select your Section you want to sign in
+    </p>
+
+  </div>
+      <!-- <ion-icon src="../../assets/images/ironing-board.svg"> </ion-icon> -->
+
+  <ion-grid >
+    <ion-row class="ion-text-center">
+      <ion-col size="6" class="ion-text-center"
+        ><ion-button color="tertiary" (click)="push('login_staff')">
+        FACULTY
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="6"
+        ><ion-button  color="tertiary" (click)="push('login_parents')">
+          PARENT
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

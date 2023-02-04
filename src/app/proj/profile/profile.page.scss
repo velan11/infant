@@ -1,0 +1,60 @@
+.camico {
+  background: #e2e2e2;
+  position: absolute;
+  right: 4px;
+  color: #61605f;
+  width: 31px;
+  height: 31px;
+  line-height: 1.5;
+  text-align: center;
+  top: 60px;
+  padding-top: 5px;
+  border-radius: 50%;
+}
+h3 {
+  font-size: 15px;
+}
+
+.imku {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  // float: right;
+  // margin-right: 13px;
+}
+
+.marR-5 {
+  margin-right: 5px !important;
+}
+.yel-col {
+  color: #377fffc2;
+  font-size: 34px;
+  margin: 0 auto;
+  margin-top: 14px;
+  margin-left: 9px;
+}
+.das {
+  text-align: center;
+  margin-top: 5px;
+  ion-item {
+    div {
+      overflow: scroll !important;
+      display: flex !important;
+    }
+    div::-webkit-scrollbar {
+      display: none;
+      -ms-overflow-style: none;
+    }
+  }
+}
+
+// ion-item {
+//   font-weight: 800;
+//   color: black;
+//   opacity: 1;
+// }
+
+.item-interactive-disabled.sc-ion-label-md-h:not(.item-multiple-inputs),
+.item-interactive-disabled:not(.item-multiple-inputs) .sc-ion-label-md-h {
+  opacity: 1 !important;
+}

@@ -1,0 +1,95 @@
+<!-- <ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Payment Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content fullscreen *ngIf="isEnable">
+  <ion-grid class="message">
+    <ion-row>
+      <img class="right-img" src="../../../assets/images/success.png">
+    </ion-row>
+    <ion-row>
+      <p class="message-text">{{ message }}</p>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-card>
+    <ion-item>
+      <ion-label>Student Name</ion-label>
+      <ion-note slot="end" color="primary">{{ student_name }}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>Payment ID</ion-label>
+      <ion-note slot="end" color="primary"> {{ payment_id }}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>Payment Date</ion-label>
+      <ion-note slot="end" color="primary">{{ payment_date }}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>Amount</ion-label>
+      <ion-note slot="end" color="primary">{{ amount }}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>Status</ion-label>
+      <ion-note slot="end" color="primary">{{ status }}</ion-note>
+    </ion-item>
+  </ion-card>
+  <ion-grid>
+    <ion-row *ngIf="receipt_ids">
+      <ion-col size="6" >
+        <ion-button 
+        expand="full"      
+        color="tertiary"
+        (click)="generateReport()"
+        >
+          <ion-icon name="print-outline"></ion-icon> 
+          &nbsp;Print
+        </ion-button>
+      </ion-col>
+     
+    
+      <ion-col size="6">
+        <ion-button 
+        expand="full"      
+        color="tertiary"
+        (click)="back()">Close</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!receipt_ids">
+      <ion-col>
+        <ion-button 
+        expand="full"      
+        color="tertiary"
+        (click)="back()">Close</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content fullscreen *ngIf="!isEnable">
+  <ion-grid class="message">
+    
+    <ion-row>
+      <p class="message-error">Your Payment Failed</p>
+    </ion-row>
+    <ion-row><p class="something-error">Something went wrong.</p></ion-row>
+  </ion-grid>
+<ion-grid class="f-grid">
+  <ion-row>
+    <img class="failed-img" src="../../../assets/images/failed.png">
+  </ion-row>
+</ion-grid>
+  <ion-grid>
+    <ion-row>
+  
+      <ion-col ><ion-button expand="full"      
+        color="tertiary">Try Again</ion-button></ion-col>
+     
+    </ion-row>
+  </ion-grid>
+  </ion-content>

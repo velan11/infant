@@ -1,0 +1,30 @@
+<ion-menu side="start" color="menu"  menuId="content1" contentId="content1">
+  <ion-header color="menu">
+    <ion-toolbar color="menu" style="padding-left: 20px;"
+      ><h3>Menu</h3>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content color="menu">
+    <ion-list *ngFor="let pages of navigate" color="menu">
+      <ion-menu-toggle auto-hide="true" menuClose>
+        <ion-item
+          [routerDirection]="'root'"
+          [routerLink]="[pages.url]"
+          color="menu"
+        >
+          <!-- //  lines="none" -->
+          <ion-icon *ngIf="pages.icon" [name]="pages.icon"></ion-icon>
+          <img *ngIf="!pages.icon" [src]="pages.src" style="width: 8%;">
+          <ion-label> {{ pages.title }}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+
+    <!-- <ion-item color="menu" (click)="logot()"> -->
+      <!-- //  lines="none" -->
+    <ion-item color="menu">
+      <ion-icon name="log-out"></ion-icon>
+      <ion-label> Logout</ion-label>
+    </ion-item>
+  </ion-content>
+</ion-menu>

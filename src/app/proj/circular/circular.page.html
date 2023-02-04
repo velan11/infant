@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar color="menu">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Assignment / Notice</ion-title>
+
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div *ngIf="!none" style="margin-top: 20px;">
+        <ion-grid *ngFor="let item of circularData; let i = index" style="padding: 8px 10px;" >
+            <ion-row class="card-row " (click)="openCircular(item)">
+                <!-- [ngClass]="(item.noticeList[0].readable_status=== 0 ? 'unread_data ' : 'read_data')" -->
+                <ion-col class="icon-col" size="4">
+                    
+                   <div style="display: flex;margin-left: 6px;">
+                    <div style="width: 40%;">
+                        <img class="img1" src="assets/images/calendar.png" />
+                    </div>
+                    <div style="margin-left: 6px;">
+                        <p style="font-size: 12px; color: #ffff;">{{ item.notice_date_time }}</p></div>
+                    </div>
+                     
+
+                </ion-col>
+                <ion-col class="icon-info-col" size="8">
+                    <h4 style="padding-left: 15px; font-size: 14px;">{{ item.title }}</h4>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+
+        <!-- ////empty -->
+       
+    </div>
+    <ion-card *ngIf="none" style="text-align: center;color: #000;margin: 15px;">
+
+        <!-- {{ circularData.data.length|json}} -->
+
+        <h3>No Assignment / Notice</h3>
+
+        <img src="../../../assets/images/noti.png" class="imf" />
+    </ion-card>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
+        <ion-infinite-scroll-content loadingSpinner="bubbles"
+        loadingText="Loading more data..."></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+</ion-content>

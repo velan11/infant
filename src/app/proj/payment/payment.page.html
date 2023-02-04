@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="menu">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+      <ion-title> Fees </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!isError">
+    <div *ngIf="admissionFeesInStudentDashboard == 0">
+      <p style="margin-top: 2rem;text-align: center;font-size: 16px;color: red;">ADMISSION FEE PAYMENT IS CLOSED</p>
+    </div>
+    <div *ngIf="admissionFeesInStudentDashboard == 1">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <ion-grid class="tabl">
+        <ion-row class="a_list">
+          <ion-col size="3.3">
+            <p>Challan No</p>
+          </ion-col>
+          <ion-col size="3.5">
+            <p>Amount</p>
+          </ion-col>
+          <ion-col size="3.2">
+            <p>Due Date</p>
+          </ion-col>
+          <ion-col size="2">
+            <p>Action</p>
+          </ion-col>
+        </ion-row>
+        <div *ngIf="orders.length != 0">
+          <ion-row class="abst_list"  *ngFor="let order of orders">
+            <ion-col size="3.3">
+                <p style="text-align: left;" class="v">{{order.challan_number}}</p>
+            </ion-col>
+            <ion-col size="3.5">
+                <p class="v">{{order.amount  | currency:'INR' }}</p>
+            </ion-col>
+            <ion-col size="3.2" >
+              <p class="v">{{order.due_date}}</p>
+            </ion-col>
+            <ion-col size="2" *ngIf="order.action == 'Print'">
+              <button (click)=" generateReport(order.receipt_ids)" [disabled]="!order.receipt_ids" class="button-1">Print</button>
+            </ion-col>
+            <ion-col size="2" *ngIf="order.action == 'Pay'">
+              <button (click)="generateOrder(order)" [disabled]="order.pay_fee_disable == 'Y'" class="button-1">Pay</button>
+            </ion-col>
+            <ion-col size="2" *ngIf="order.action == 'Due Date Passed'">
+              <p style="color: red;">Due Date Passed</p>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf="orders.length == 0">
+          <ion-row class="abst_list">
+            <ion-col>
+              Data Not Found
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-grid>
+    </div>
+  </div>
+  <ion-card *ngIf="isError" style="text-align: center;color: #000;margin: 15px;">
+    <h3>{{error}}</h3>
+    <img src="../../../assets/images/noti.png" class="imf" />
+  </ion-card>
+</ion-content>

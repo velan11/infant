@@ -1,0 +1,37 @@
+.numbers {
+  ion-input {
+    background: #ffffffc2;
+    border-radius: 7px;
+    height: 43px;
+    padding: 29px;
+    color: #000;
+  }
+}
+
+ion-icon {
+  font-size: 50px;
+  border-radius: 50%;
+  padding: 10px;
+
+  &[name="logo-facebook"] {
+    background: #3b5998;
+  }
+  &[name="logo-instagram"] {
+    background: #3e729a;
+  }
+  &[name="logo-googleplus"] {
+    background: #e3503c;
+  }
+}
+// .................
+.item-label-floating.sc-ion-input-md-h,
+.item-label-floating .sc-ion-input-md-h,
+.item-label-stacked.sc-ion-input-md-h,
+.item-label-stacked .sc-ion-input-md-h {
+  position: relative !important;
+  top: 14px !important;
+}
+.label-floating.sc-ion-label-md-h {
+  position: relative !important;
+  top: 10px !important;
+}

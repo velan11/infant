@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Remarks Entry</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="black">
+      
+      <!-- (click)="modal.dismiss()"> -->
+      <ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+  <ion-content>
+    <form [formGroup]="myForm">
+      <ion-item>
+        <ion-label class="label" position="stacked">Student Name</ion-label>
+        <p>{{studentDetails.student_name}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label class="label" position="stacked">Roll No.</ion-label>
+        <p>{{studentDetails.roll_no}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Remarks</ion-label>
+        <ion-textarea formControlName="remark"  placeholder="Remarks"></ion-textarea>
+      </ion-item>
+      <ion-button (click)="create()" expand="block" [disabled]="!myForm.valid" >
+        Save</ion-button>
+    </form>
+  </ion-content>

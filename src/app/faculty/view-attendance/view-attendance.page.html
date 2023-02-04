@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="menu">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="attendance"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Attendance Sheet</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="thumnails">
+    <div class="list-thumbnail">
+      <div class="img-thumb">
+        <ion-grid text-center class="grid-bordered">
+          <ion-row>
+            <!-- <ion-col size="1.5">
+              Hour
+            </ion-col> -->
+            <ion-col size="2">
+              Date
+            </ion-col>
+            <!-- <ion-col size="2">
+              Lecture Hour
+            </ion-col> -->
+           
+            <!-- <ion-col size="2">
+              Staff
+            </ion-col> -->
+            <ion-col size="2">
+              Total Absentees
+            </ion-col>
+            <ion-col size="5">
+              Absentees
+            </ion-col>
+            <ion-col size="3">
+              Updated At
+            </ion-col>
+          </ion-row>
+          <ion-virtual-scroll [items]="displaySheet" approxItemHeight="120px">
+            <ion-row class="row-text" *virtualItem="let s;let i=index">
+              <!-- <ion-col size="1.5">
+                {{s.progressive_hour}}
+              </ion-col> -->
+              <ion-col size="2">
+                {{s.date| date: 'dd/MM/yyyy'}}
+              </ion-col>
+              <!-- <ion-col size="2">
+                {{s.lecture_hour}}
+              </ion-col> -->
+              <!-- <ion-col size="2">
+                {{s.staff_name}}
+              </ion-col> -->
+              <ion-col size="2">
+                {{s.totalAbesentees}}
+              </ion-col>
+              <ion-col col-auto size="5">
+                {{s.abesentees}}
+              </ion-col>
+              <ion-col size="3">
+                {{s.updated_at| date: 'MMM d, h:mm a'}}
+              </ion-col>
+            </ion-row>
+          </ion-virtual-scroll>
+          <ion-row *ngIf="displaySheet?.length == 0">
+            <ion-col size="12">
+              No Data to Display
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

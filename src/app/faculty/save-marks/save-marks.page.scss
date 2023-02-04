@@ -1,0 +1,176 @@
+
+
+      #yourBtn {
+        position: relative;
+        width: 75%;
+        padding: 8px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        // border: 1px dashed #690d01fc;
+        text-align: center;
+        // background-color: #690d01fc;
+        color: #690d01fc;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+
+    //   .align {
+    //     text-align: center;
+    //     vertical-align: middle;
+    //   }
+
+
+
+      .ion-col {
+        border: 1px  solid gray!important ;
+        color:black;
+        
+    }
+    .align {
+      text-align: center;
+      vertical-align: text-bottom;
+    }
+    ion-content{padding: 10px;}
+    .hdr_card{
+        padding-left: 10px;
+        padding-right: 5px;
+        color: #000;
+    }
+    ion-card-content{
+        padding:0!important;
+        overflow: scroll ;
+        ion-grid{
+            padding:0!important;
+            
+        }
+    }
+    
+    .expand-wrapper {
+        height: 0;
+        transition: 0.2s linear;
+      }  
+      
+      .collapsed {
+        height: 0 !important;
+      }
+      .not-colapse{
+          height: auto;
+      }
+      .accordion-button {
+        border: none;
+        color: rgb(30, 32, 35);
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: rgb(241, 208, 203);
+        margin: 15px 19px;
+        height: 50px !important;
+    }
+    
+    .mat-expansion-panel-header.mat-expanded:hover{
+        background: #f1d0cb;
+        height: 48px!important;
+    }
+    
+    .bottom {
+        bottom: 15px !important;
+    }
+    
+    .student_name {
+        margin-top: 15px;
+        font-size: 18px;
+        margin-left: 25px;
+    }
+
+    .ion-row_up{
+        margin-top: 10px;
+    }
+    .span_line{
+        //   padding: 10px;
+        // padding-left: 5px;
+        margin: 5px;
+        font-size: 13px;
+        margin-top: 60px;
+    
+        // border-bottom: 1px solid rgb(80, 117, 240);
+    }
+    
+    ion-item.pl-0.ion-untouched.ion-pristine.ion-valid.item.md.ion-focusable.item-interactive.item-datetime.item-has-value.hydrated {
+        position: absolute;
+        bottom: -11px;
+    
+    }
+    ion-item.pl-0.item.md.ion-focusable.item-interactive.item-datetime.item-has-value.hydrated.ion-valid.ion-touched.ion-dirty {
+        height: 6px;
+        position: relative;
+        top: -10px;
+    }
+    
+    .lable_color{
+        color:black;
+        //  left:20px;
+    }
+    
+    ion-select.drop.select_width.ng-untouched.ng-pristine.ng-valid.ion-untouched.ion-pristine.ion-valid.md.hydrated{
+        width: 35% !important;
+       
+    }
+    
+    .span_bold {
+     font-weight: bold;
+    }
+    
+    .box {
+        border-color: #403E39;
+        border-width: thin;
+        border-style: solid;
+        border-radius: 3px;
+    }
+
+    .grid-bordered{
+        // ion-row{
+        //   border-style: solid;
+        //   white-space: normal;
+        //   text-align: center;
+        //   font-style: bold;
+        //   font-weight: bold;
+        // //   align-items: center;
+    
+        //   border-width: 1px 0px 1px 0px;
+        //   border-color: #5f5757;
+        //   line-height: 32px;
+        // //   border-radius: 30px;
+        // }
+        .row-text{
+          white-space: normal;
+          line-height: 15px;
+        }
+        // ion-col{
+        //   border-style: solid;
+        //   border-radius: 2px;
+        //   border-width: 0px 1px 0px 1px;
+        //   border-color: #ccc6c6;
+        // }
+    }
+    
+    .thumnails{
+        overflow-x: scroll;
+        overflow-y: scroll;
+        .list-thumbnail{
+            height: 10%;
+            white-space: nowrap;
+            .img-thumb{
+                display: inline-block;
+                
+                border: 0px solid rgb(211, 12, 12);
+                border-radius: 4px;
+                padding: 3px;
+                width: 160%; 
+                font-size: 12px;
+                height: 100%;
+                margin:0 2px 0 0; 
+                line-height: 30px;
+            }
+        }
+    }

@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar color="menu">
+      <ion-buttons slot="start">
+          <ion-button (click)="back()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+     
+      <ion-title >Mark Entry`s </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid lines="none"  style="padding: 0 20px;">
+    <ion-row   class="ion-row_up">
+      <ion-col size="4">
+        <span class="span_line"><span class="span_bold">Class</span> </span>
+      </ion-col>
+      <ion-col size="0.2">:</ion-col>
+      <ion-col>{{facData.class}}</ion-col>
+    </ion-row>
+    <ion-row   class="ion-row_up">
+      <ion-col size="4">
+        <span class="span_line"><span class="span_bold">Division</span> </span>
+      </ion-col>
+      <ion-col size="0.2">:</ion-col>
+      <ion-col>{{facData.division}}</ion-col>
+    </ion-row>
+    <ion-row   class="ion-row_up">
+      <ion-col size="4">
+        <span class="span_line"><span class="span_bold">Subject</span> </span>
+      </ion-col>
+      <ion-col size="0.2">:</ion-col>
+      <ion-col>{{facData.subject_name}}</ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <div *ngIf="!internalAssessment">
+    <div class="ion-padding custom-skeleton">
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    </div>
+
+    <div class="ion-padding custom-skeleton">
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    </div>
+
+    <div class="ion-padding custom-skeleton">
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    </div>
+  </div>
+  <div *ngIf="internalAssessment">
+    <mat-accordion style="padding:0px !important">
+      <mat-expansion-panel *ngFor="let e of examParticulars" class="animated slideInLeft delay-0s">
+        <mat-expansion-panel-header class="accordion-button">
+          <mat-panel-title>
+            {{e.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <ion-grid>
+          <ion-row>
+            
+            <ion-col class="ion-col" size="5">
+              Description
+            </ion-col>
+            <ion-col class="ion-col" size="4">
+              Max Marks
+            </ion-col>
+            <ion-col class="ion-col" size="3">
+              Status
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let s of internalAssessment[e.id]">
+            
+            <ion-col  class="divsion ion-col" text-center size="5">
+              {{s.assessment_particulars}}
+            </ion-col>
+            <ion-col class="ion-col align" size="4">
+              {{s.max_marks}}
+            </ion-col>
+            <ion-col size="3" class="ion-col">
+              <div *ngIf="s.final_save == null">
+                <ion-button color="tertiary" size="small" shape="round" (click)="select(s, e)">
+                  <ion-icon name="add"></ion-icon>
+                </ion-button>
+              </div>
+              <div *ngIf="s.final_save != null">
+                <p (click)="select(s, e)" style="color: #690d01fc;">Closed</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</ion-content>

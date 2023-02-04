@@ -1,0 +1,78 @@
+// ion-img {
+//   width: 153px;
+//   margin: 0 auto;
+// }
+// ion-input {
+//   box-shadow: 0px 0px 14px #d6d2d2;
+//   padding: 0 20px !important;
+// }
+
+.back {
+  padding: 6px 0px;
+  text-decoration: underline;
+  position: absolute;
+  left: 10px;
+  top: 17px;
+  font-size: 18px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.78);
+  border-radius: 50px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  box-shadow: 0px 2px 4px #585858;
+}
+img.img-fluid {
+  width: 100%;
+  // margin: 0 0 75px 0;
+}
+#partitioned {
+  text-align: center;
+  // margin-left: 15px;
+  letter-spacing: 42px;
+  border: 0;
+  background-image: linear-gradient(
+    to left,
+    black 70%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 50px 1px;
+  background-repeat: repeat-x;
+  background-position-x: 35px;
+  width: 220px;
+}
+h3 {
+  margin-bottom: 25px;
+}
+.brde {
+  text-align: center;
+  border: 1px solid #6b1a0d;
+  padding: 20px 13px;
+  border-radius: 48px;
+  margin: 12px 13px;
+}
+.digit-group input {
+  width: 30px;
+  height: 50px;
+  background-color: #18182a;
+  border: none;
+  line-height: 50px;
+  text-align: center;
+  font-size: 24px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  color: white;
+  margin: 0 2px;
+}
+.digit-group .splitter {
+  padding: 0 5px;
+  color: white;
+  font-size: 24px;
+}
+
+.prompt {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: white;
+}

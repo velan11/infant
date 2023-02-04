@@ -1,0 +1,113 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <span class="back_butt ion-padding" *ngIf="page=='register'">
+      Sign up
+    </span>
+    <span class="back_butt ion-padding" *ngIf="page=='forgot-password'">
+      Forgot password ?
+    </span>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div class="text-center" style="text-align: center;">
+    <!-- <img src="assets/images/asd.png" class="img-fluid" alt="" /> -->
+    <img src="assets/images/banner_2.png" class="img-fluid" alt="" />
+  </div>
+  <div class="login-block ">
+    <!-- <h2 class="ion-text-center" class="dd">
+      <ion-icon
+        tappab0le
+        defaultHref="/login"
+        style="float: right;font-size: 23px;
+      margin-top: 7px;"
+        name="log-out"
+      ></ion-icon>
+      Sign up
+    </h2> -->
+    <div *ngIf="page=='register'" style="text-align: center; font-weight: 600;">
+      <!-- <h2 style="font-weight: bold;">
+        Welcome !!
+      </h2> -->
+      <h4 style="text-align: center; font-weight: bold;">
+        Register
+      </h4>
+    </div>
+    <div
+      *ngIf="page=='forgot-password'"
+      style="text-align: center;margin-bottom: 20px;"
+    >
+      <h4 style="text-align: center; font-weight: bold;">
+        Reset Password
+      </h4>
+    </div>
+
+    <!-- <div *ngIf="page=='signup'">
+      <ion-label position="stacked" style="font-size: 12px;">Name</ion-label>
+      <ion-input
+        style="color: black;"
+        [(ngModel)]="name"
+        type="text"
+      ></ion-input>
+    </div> -->
+
+    <div style="padding:0 35px;">
+      <ion-item>
+        <ion-label style="font-size: 12px;" position="floating"
+          >Mobile No / Email Id
+        </ion-label>
+        <ion-input
+          style="color: black;"
+          [(ngModel)]="mob_num"
+          type="text"
+        ></ion-input>
+      </ion-item>
+    </div>
+    <p class="red ion-text-center" *ngIf="error">
+      {{error}}
+    </p>
+
+    <div style="text-align: center;margin-top: 15px;">
+      <ion-button shape="round" color="tertiary" (click)="for_otp()">
+        <span *ngIf="page=='forgot-password'">
+          Reset password
+        </span>
+        <span *ngIf="page=='register'">
+          Register
+        </span>
+      </ion-button>
+    </div>
+
+    <div class="ion-text-center">
+      <!-- <p>Or</p> -->
+
+      <!-- <ion-grid>
+        <ion-col size="4">
+          <img src="../../assets/images/facebook (1).svg" height="60" />
+        </ion-col>
+        <ion-col size="4">
+          <img src="../../assets/images/google-plus (1).svg" height="60" />
+        </ion-col>
+
+        <ion-col size="4">
+          <img src="../../assets/images/instagram (1).svg" height="60" />
+        </ion-col>
+      </ion-grid> -->
+      <!-- <div *ngIf="page=='register'">
+        <p style="color: black;">Already Have an Account ?</p>
+        <p routerLink="/login" style="font-size: 22px;">
+          Sign in
+        </p>
+      </div> -->
+    </div>
+  </div>
+
+  <div>
+    <span routerLink="/login" class="back">
+      <ion-icon name="arrow-back"></ion-icon>
+    </span>
+  </div>
+</ion-content>

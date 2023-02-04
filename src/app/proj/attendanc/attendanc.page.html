@@ -1,0 +1,256 @@
+<ion-header>
+  <ion-toolbar color="menu">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Attendance</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <ion-calendar
+    [(ngModel)]="dateMulti"
+    [options]="optionsMulti"
+    [format]="'YYYY-MM-DD'"
+    (onChange)="onSelect($event)"
+    [readonly]="true"
+  >
+   
+  </ion-calendar>
+  
+  (click)="onSelect($event)" -->
+
+  <!-- <ion-calendar
+    *ngIf="calc==0"
+    [(ngModel)]="dateMulti"
+    class="ion-clder"
+    [type]="string"
+    [readonly]="false"
+    [options]="optionsMulti"
+    (select)="onSelect($event)"
+    [format]="'YYYY-MM-DD'"
+    (monthChange)="monthchnge($event)"
+  >
+  </ion-calendar> -->
+  <!-- (monthChange)="monthchnge($event)" -->
+
+  <!-- <div style="margin-top: 10px;text-align: center;" *ngIf="calc==0">
+    <p><span class="abscent"></span>Absent days</p>
+  </div> -->
+  <!-- <div *ngFor="let abst of absentData">
+    <ion-card>
+      {{abst.subjec}}
+    </ion-card>
+  </div> -->
+  <!-- 
+  <div *ngFor="let absent of absentData">
+    <div *ngFor="let a of absent">
+      <div *ngFor="let b of a">
+        {{b | json}}
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div *ngIf="calc==2">
+    <div *ngIf="clicked_Date">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3"><p>Hours</p> </ion-col>
+          <ion-col size="9"><p>Subject</p> </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            size="12"
+            *ngIf="[undefined,'',null].indexOf(absentDetails)>-1"
+            ><span style="color: red;">No Data Found</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div *ngFor="let item of absentDetails">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3"><p>{{item.lecture_hour}}</p> </ion-col>
+            <ion-col size="9"><p>{{item.subject_name}}</p> </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div *ngIf="calc==0">
+    {{currentMonth.months}}
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2"><p>Class</p> </ion-col>
+        <ion-col size="4"><p>Date</p> </ion-col>
+        <ion-col size="6"><p>Subject</p> </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div *ngIf="clicked_Date">
+      <div *ngFor="let absent of absentData">
+        <div *ngFor="let item of absent | keyvalue">
+          <div *ngFor="let data of item.value">
+            <ion-grid *ngIf="absent.month == currentMonth">
+              <ion-row>
+                <ion-col size="2" style="text-align: center;">
+                  {{data['lecture_hour']}}
+                </ion-col>
+
+                <ion-col size="4">
+                  {{item.key | date:'dd-LL-yyyy'}}
+                </ion-col>
+
+                <ion-col size="6" style="overflow: scroll;">
+                  {{data['subject_name']}}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    
+  </div> -->
+
+  <!-- <div
+    style="margin-top: 15px;text-align: right;margin-right: 30px;"
+    class="btn btn-outline-secondary"
+    mwlCalendarToday
+    [(viewDate)]="viewDate"
+  >
+    Today
+  </div> -->
+
+  <ion-grid>
+    <ion-row style="margin-top: 25px;">
+      <ion-col size="3">
+        <div
+          class="btn btn-primary"
+          mwlCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()" style="padding: 15px 0px 9px 6px;"
+        >
+          <ion-icon name="arrow-back-circle"></ion-icon></div
+      ></ion-col>
+
+      <ion-col size="6">
+        <h3 no-margin>
+          {{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}
+        </h3>
+      </ion-col>
+
+      <ion-col size="3">
+        <div
+          class="btn btn-primary"
+          mwlCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()"
+          style="padding: 15px 0px 9px 6px;"
+        >
+          <ion-icon name="arrow-forward-circle"></ion-icon></div
+      ></ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="row ion-text-center"></div>
+  <br />
+  <div [ngSwitch]="view" class="ion-padding" *ngIf="lyt">
+    <mwl-calendar-month-view
+    
+      *ngSwitchCase="CalendarView.Month"
+      [viewDate]="viewDate"
+      [events]="events"
+      class="da"
+      [refresh]="refresh"
+      [activeDayIsOpen]="activeDayIsOpen"
+      (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="handleEvent('Clicked', $event.event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-month-view>
+  </div>
+
+  <div style="padding-left: 20px;">
+    <span class="sms_c">1</span>
+    <p style="font-size: 15px; margin-left: 25px;">  - Absent</p>
+    
+  </div>
+
+  <!-- <div style="margin-top: 10px;text-align: center;" *ngIf="calc==0">
+    <p><span class="abscent"></span>Absent days</p>
+  </div>
+
+  <div class="">
+    <div *ngIf="clicked_Date">
+      <ion-grid class="tabl">
+        <ion-row class="a_list">
+          <ion-col size="2"><p>Hour</p> </ion-col>
+          <ion-col size="10"><p>Subject</p> </ion-col>
+          <ion-col size="4"><p>Lecturer</p> </ion-col> 
+        </ion-row>
+        <ion-row class="no_data">
+          <ion-col
+            size="12"
+            *ngIf="[undefined,'',null].indexOf(absentDetails)>-1"
+            ><span style="color: red;">No Data Found</span>
+          </ion-col>
+        </ion-row>
+
+        <div class="abst_list" *ngFor="let item of absentDetails">
+          <ion-row>
+            <ion-col size="2"><p>{{item.lecture_hour}}</p> </ion-col>
+            <ion-col size="10"><p>{{item.subject_name}}</p> </ion-col>
+            <ion-col size="4"><p>{{item.lecturer}}</p> </ion-col> 
+          </ion-row>
+        </div>
+      </ion-grid>
+    </div>
+  </div> -->
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <div
+          class="btn btn-primary"
+          mwlCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()"
+        >
+          Previous
+        </div></ion-col
+      >
+
+      <ion-col size="4">
+        <div
+          class="btn btn-outline-secondary"
+          mwlCalendarToday
+          [(viewDate)]="viewDate"
+        >
+          Today
+        </div></ion-col
+      >
+
+      <ion-col size="4">
+        <div
+          class="btn btn-primary"
+          mwlCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()"
+        >
+          Next
+        </div></ion-col
+      >
+      
+    </ion-row>
+  </ion-grid> -->
+
+  <!-- <ion-col size="12" class="ion-text-center"
+        ><h3>
+          {{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}
+        </h3></ion-col
+      > -->
+</ion-content>

@@ -1,0 +1,130 @@
+
+ion-content {
+	--background: #620b23;
+}
+ion-card {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+.card1 {
+// background: linear-gradient(to bottom, #f78470 0%, #a92c16 100%);
+	background: linear-gradient(to bottom, #cc6f61 0%, #54231c 100%);
+}
+.img1 {
+	width: 20px;
+	margin: 0px 35%;
+	margin-top: 20px;
+}
+.label {
+	margin-top: 5px;
+	// font-size: 14px;
+	color: #ffff;
+}
+.text1 {
+	margin-bottom: 10px;
+	text-align: center;
+	margin-top: 10px;
+	color: white;
+}
+.sms_c {
+	position: absolute;
+	top: 2px;
+	right: 45px;
+	color: #ae5c50;
+	background: white;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 2;
+	font-size: 10px;
+}
+ion-segment {
+	// border: 1px solid #bd5757;
+	color: #fff;
+	border-radius: 0;
+	.segment-button-checked {
+			background: #bd5757;
+			color: #fff;
+			&:nth-child(1) {
+			border-radius: 0;
+			}
+			&:nth-child(2) {
+			border-radius: 0;
+			}
+			text-transform: unset;
+	}
+}
+
+.picker_input {
+	border: 1px solid #252525 !important;
+	border-radius: 40px;
+	margin-top: 20px;
+
+	ion-input {
+		border: 1px solid transparent;
+		padding: 0;
+	}
+
+	ion-icon {
+		margin: 5px !important;
+	}
+}
+
+.topicons_design {
+	margin-top: 20px;
+	color: #bdbdbd;
+
+	ion-icon {
+		font-size: 35px;
+		border: 1px solid #252525;
+		border-radius: 50%;
+		padding: 10px;
+	}
+	ion-label {
+		color: #252525;
+	}
+}
+
+.icons_design .active {
+	color: var(--ion-color-primary);
+	border: none !important;
+}
+
+.icons_design {
+	ion-col {
+		margin-top: 20px;
+		color: #bdbdbd;
+
+		border: 1px solid #bdbdbd;
+		border-radius: 5px;
+		margin: 10px;
+		ion-icon {
+			font-size: 35px;
+		}
+	}
+}
+.prof {
+	font-size: 22px;
+	margin-top: 4px;
+}
+.seg {
+	background: #a93d3d;
+	margin-top: -4px;
+	height: 69px;
+	border-radius: 0;
+}
+
+.seg-btn {
+	width: 50%;
+
+}
+.line {
+	border-right: 1px solid #8b7777;
+}
+.line1 {
+	border-top: 1px solid #8b7777;
+}
+
+

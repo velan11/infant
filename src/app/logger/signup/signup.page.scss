@@ -1,0 +1,66 @@
+.dd {
+  // margin-top: 45px;
+  font-size: 28px;
+  text-align: center;
+}
+.back {
+  padding: 6px 0px;
+  text-decoration: underline;
+  position: absolute;
+  left: 10px;
+  top: 17px;
+  font-size: 18px;
+  color: #ffffff;
+  background: #41232d;
+  border-radius: 50px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  box-shadow: 0px 2px 4px #585858;
+}
+// .bord {
+//   border: 1px solid #b17267;
+//   margin: 22px;
+//   border-radius: 28px;
+//   padding-bottom: 25px;
+// }
+
+.login-block {
+  display: block;
+  border: 1px solid #6b1a0d;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.52);
+  margin: 0 auto;
+width: 80%;
+  padding: 14px 0;
+
+  // margin: 90% 0 0 0;
+}
+
+// ion-input {
+//   width: 100%;
+//   padding: 12px 20px;
+//   margin: 8px 0;
+//   box-sizing: border-box;
+//   border-radius: 4px;
+//   background: #ffe69b;
+// }
+// ion-content {
+//   border-top: 10px solid var(--ion-color-primary-shade);
+// }
+img.img-fluid {
+  width: 100%;
+  // margin: 0 0 75px 0;
+}
+// .................
+.item-label-floating.sc-ion-input-md-h,
+.item-label-floating .sc-ion-input-md-h,
+.item-label-stacked.sc-ion-input-md-h,
+.item-label-stacked .sc-ion-input-md-h {
+  position: relative !important;
+  top: 14px !important;
+}
+.label-floating.sc-ion-label-md-h {
+  position: relative !important;
+  top: 10px !important;
+}
